@@ -22,7 +22,7 @@ public class TipoClienteGUI extends BaseFrame {
         add(Titulo);
 
 
-        JButton comprar= new JButton("Comprar");
+        JButton comprar= new JButton("COMPRAR");
         comprar.setForeground(Constantes.ColorTexto);
         comprar.setBackground(Constantes.SPColor);
         comprar.setBounds(0,120,super.getWidth(),50);
@@ -30,13 +30,24 @@ public class TipoClienteGUI extends BaseFrame {
         add(comprar);
 
 
-        JButton vender= new JButton("Vender");
+        JButton vender= new JButton("VENDER");
         vender.setForeground(Constantes.ColorTexto);
         vender.setBackground(Constantes.SPColor);
         vender.setBounds(0,200,super.getWidth(),50);
         vender.setFont(new Font("Dialog",Font.BOLD,20));
 
         add(vender);
+
+
+
+        JButton Subastar= new JButton("SUBASTA");
+        Subastar.setBackground(Constantes.SPColor);
+        Subastar.setForeground(Constantes.ColorTexto);
+        Subastar.setBounds(0, 280, super.getWidth(),50 );
+        Subastar.setFont(new Font("Dialog",Font.BOLD,20));
+
+        add(Subastar);
+
 
 
         

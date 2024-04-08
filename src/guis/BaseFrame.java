@@ -15,7 +15,7 @@ public abstract class BaseFrame extends JFrame{
         
         // Cambiar el fondo de la GUI 
 
-        getContentPane().setBackground(Constantes.ColorFondo);
+        getContentPane().setBackground(Constantes.ColorFondo);      
         
         
         
