@@ -3,6 +3,8 @@ package backend;
 import java.util.*;
 
 import backend.Pieza;
+import backend.Trabajadores.Administrador;
+import backend.Trabajadores.Empleado;
 
 public class Inventario {
     // atributos    

@@ -1,4 +1,4 @@
-package backend;
+package backend.Trabajadores;
 
 public class Administrador {
     private String User="Administrador";

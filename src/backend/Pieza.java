@@ -3,6 +3,8 @@ package backend;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import backend.Clientes.Propietario;
+
 public class Pieza {
     private String autor;
     private Integer id;
