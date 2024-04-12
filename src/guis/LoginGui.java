@@ -2,9 +2,16 @@ package guis;
 
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import Constantes.Constantes;
+import JDBC.MyJDBC;
+import JDBC.User;
+
 import javax.swing.*;
+
+import com.mysql.cj.xdevapi.Client;
 
 // objetivo de la clase, permitir que el usuario de la Galeria realice su login y ejecute la gui
 public class LoginGui extends BaseFrame {
@@ -98,7 +105,62 @@ public class LoginGui extends BaseFrame {
         boton.setForeground(Constantes.ColorTexto);
         boton.setBounds(20,270,getWidth()-60,30);
         boton.setFont(new Font("Dialog",Font.BOLD,20));
+
+
+        //asignar Actions
+        boton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //obtener ususario
+                String Username=UsernameField.getText();
+                //obtener contraseña
+
+                String password= String.valueOf(passwordField.getPassword());
+
+                //validar el login 
+
+                User user= MyJDBC.validateLogin(Username, password);
+
+                
+            if (user != null){
+                // eliminar esta gui
+                LoginGui.this.dispose();
+
+                //Hacer validacion Respectiva para Clientes
+
+                if (user.getUsername()=="ADMINISTRADOR"){
+                    AdministradorGUI administradorGUI= new AdministradorGUI();
+                    administradorGUI.setVisible(true);
+                    JOptionPane.showMessageDialog(administradorGUI, "LogIn Exitoso");
+                }
+                if (user.getUsername()=="OPERADOR"){}
+                if (user.getUsername()=="CAJERO"){}
+
+                else{// clase Cliente 
+                    // Hacer visible clase cliente         
+                    ClienteGUI clienteGUI= new ClienteGUI();
+                    clienteGUI.setVisible(true);
+                    JOptionPane.showMessageDialog(clienteGUI, "LogIn Exitoso");
+                }
+                
+
+                // Conectar con la GUI específica
+
+            }else{JOptionPane.showMessageDialog(LoginGui.this, "Error");}
+
+            }
+            
+            // si ususario es null significa que no se encontro un valor almacenado 
+
+        });
+
+
+
         add(boton);
+
+
+
 
 
     // Boton de registro 

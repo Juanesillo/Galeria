@@ -1,6 +1,6 @@
 import guis.LoginGui;
 import guis.RegisterGui;
-import guis.TipoClienteGUI;
+import guis.ClienteGUI;
 
 import javax.swing.*;
 public class AppLauncher {
@@ -13,8 +13,8 @@ public class AppLauncher {
             @Override
             public void run(){
               new LoginGui().setVisible(true);
-              new RegisterGui().setVisible(true);
-              new TipoClienteGUI().setVisible(true);
+              //new RegisterGui().setVisible(true);
+              //new ClienteGUI().setVisible(true);
             
         }
     });

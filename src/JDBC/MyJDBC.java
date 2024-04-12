@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class MyJDBC {
     //Configuracion SQL
 
-    private static final String url= "jdb:mysql://127.0.0.1:3306/Galeria ";
+    private static final String url= "jdb:mysql://127.0.0.1:3306/APPGALERIA";
     private static final String user= "root";
     private static final String password= "MonkMode.01*";
 
@@ -22,7 +22,7 @@ public class MyJDBC {
 
             // crear Query o Consulta
 
-            PreparedStatement preparedStatement= connection.prepareStatement("SELECT * FROM user WHERE username=? AND password=?");// Hacer la consulta en la base de datos para validar Usuario Y contraseña
+            PreparedStatement preparedStatement= connection.prepareStatement("SELECT * FROM users WHERE username=? AND password=?");// Hacer la consulta en la base de datos para validar Usuario Y contraseña
 
 
             //remplazar los ? por valores 

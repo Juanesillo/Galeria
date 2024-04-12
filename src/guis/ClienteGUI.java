@@ -6,8 +6,8 @@ import javax.swing.SwingConstants;
 
 import Constantes.Constantes;
 
-public class TipoClienteGUI extends BaseFrame {
-    public TipoClienteGUI(){
+public class ClienteGUI extends BaseFrame {
+    public ClienteGUI(){
         super("Acciones");
     }
 
