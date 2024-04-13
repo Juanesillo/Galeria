@@ -46,6 +46,11 @@ public class Inventario {
         }
     }
 
+    public void cambiarEstadoPieza(){
+            
+        
+    }
+
 
 
 

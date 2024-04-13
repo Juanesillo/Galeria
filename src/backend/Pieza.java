@@ -2,6 +2,7 @@ package backend;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import backend.Clientes.Propietario;
 
@@ -20,7 +21,7 @@ public class Pieza {
     // constructor
 
 
-    public Pieza(String autor, Integer id, Date anio, String lugarCreacion, Propietario propietario, String tipo,
+public Pieza(String autor, Integer id, Date anio, String lugarCreacion, Propietario propietario, String tipo,
             String titulo, String estadoInventario, boolean disponible) {
         this.autor = autor;
         this.id = id;
@@ -60,8 +61,33 @@ public class Pieza {
 
         return Atributos;
         
+    }           
+    // metodo auxiliar 
+    public ArrayList<Object>  AgregarEstado(String estado, ArrayList<Object> atributos){
+            // Agrega o Actualiza el Estado dentro del Array 
+            Integer comparador= 0;
+            Iterator <Object> it= atributos.iterator();
+
+            //recorrer la lista con iterator 
+
+            while (it.hasNext()) {
+                Object item = it.next();
+                if(item.equals(estado)){
+                    comparador=1;
+                }
+                }
+            if (comparador==0){
+                atributos.add(estado);
+            }
+        
+
+
+            return atributos;
+            }
+    
+
     }
 
 
 
-}
+
