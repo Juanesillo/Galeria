@@ -18,6 +18,7 @@ public class Inventario {
 
     // Constructor 
     public Inventario(Empleado empleado){
+        
         this.empleado=empleado;
         //se deja el constructor vacio ya que se requiere que todos los atributos estesn inicializados en su valor general
     }
@@ -46,8 +47,9 @@ public class Inventario {
         }
     }
 
-    public void cambiarEstadoPieza(){
-            
+    public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos){
+        return Pieza.AgregarEstado(estado,atributos);  
+
         
     }
 

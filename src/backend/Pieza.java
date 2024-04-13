@@ -63,7 +63,7 @@ public Pieza(String autor, Integer id, Date anio, String lugarCreacion, Propieta
         
     }           
     // metodo auxiliar 
-    public ArrayList<Object>  AgregarEstado(String estado, ArrayList<Object> atributos){
+    public static ArrayList<Object>  AgregarEstado(String estado, ArrayList<Object> atributos){
             // Agrega o Actualiza el Estado dentro del Array 
             Integer comparador= 0;
             Iterator <Object> it= atributos.iterator();
