@@ -8,9 +8,12 @@ import backend.Trabajadores.Empleado;
 
 public class Inventario {
     // atributos    
+    //lista piezas disponibles para compra
     private HashMap<Integer,ArrayList<Object>>listadoDisponible=new HashMap<Integer,ArrayList<Object>>();
+    // Lista piezas disponibles para Subasta 
+    private HashMap<Integer,ArrayList<Object>>listadoSubasta=new HashMap<Integer,ArrayList<Object>>();
 
-
+    // piezas exhibidas
     private HashMap<Integer,ArrayList<Object>> listadoexhibidas = new HashMap<Integer,ArrayList<Object>>();
     private Empleado empleado;
     private Administrador administrador;
@@ -31,12 +34,18 @@ public class Inventario {
     public HashMap<Integer,ArrayList<Object>>  getListadoexhibidas() {
         return listadoexhibidas;
     }
-
+    //llenar los hashes 
     public void AgregarPieza(Integer id, ArrayList<Object> atributos){
         listadoDisponible.put(id, atributos);
         if (Pieza.getEstadoInventario() =="exhibida"){
             listadoexhibidas.put(id,atributos);
 
+        }
+    }
+    //agregar Piezas a subasta // validar con Subasta ==> para simular la subasta 
+    public void AgregarSubasta(Integer id, ArrayList<Object> atributos){
+        if(Pieza.isDisponible()==false){
+            listadoSubasta.put(id, atributos);
         }
     }
 
@@ -49,9 +58,9 @@ public class Inventario {
 
     public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos){
         return Pieza.AgregarEstado(estado,atributos);  
-
-        
     }
+
+
 
 
 

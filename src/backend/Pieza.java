@@ -15,7 +15,7 @@ public class Pieza {
     private String tipo;// QUe tipo de obra es (Cuadro, Escultura, ETC )
     private String titulo;// nombre de la pieza
     private static String estadoInventario;
-    private boolean disponible;
+    private static boolean disponible;// disponible solo para subasta (false);
 
     
     // constructor
@@ -31,7 +31,7 @@ public Pieza(String autor, Integer id, Date anio, String lugarCreacion, Propieta
         this.tipo = tipo;
         this.titulo = titulo;
         Pieza.estadoInventario = estadoInventario;
-        this.disponible = disponible;
+        Pieza.disponible = disponible;
     }
 
 
@@ -42,11 +42,42 @@ public Pieza(String autor, Integer id, Date anio, String lugarCreacion, Propieta
     public static String getEstadoInventario() {
         return estadoInventario;
     }
-    public boolean isDisponible() {
+    public static boolean isDisponible() {
         return disponible;
     }
+    
+    public String getAutor() {
+        return autor;
+    }
+
+
+    public Date getAnio() {
+        return anio;
+    }
+
+
+    public String getLugarCreacion() {
+        return lugarCreacion;
+    }
+
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+
+    public String getTipo() {
+        return tipo;
+    }
+
+
+    public String getTitulo() {
+        return titulo;
+    }
+
 
     //metodos
+
 
     public ArrayList<Object> atributos(String autor, Integer id, Date anio, String lugarCreacion,Propietario propietario,String tipo, String Titulo){
         ArrayList<Object> Atributos= new ArrayList<Object>();
