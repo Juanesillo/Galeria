@@ -4,66 +4,67 @@ import java.util.*;
 
 import backend.Pieza;
 import backend.Trabajadores.Administrador;
-import backend.Trabajadores.Empleado;
+import backend.Trabajadores.Operador;
+
 
 public class Inventario {
     // atributos    
     //lista piezas disponibles para compra
-    private HashMap<Integer,ArrayList<Object>>listadoDisponible=new HashMap<Integer,ArrayList<Object>>();
+    private HashMap<String,ArrayList<Object>>listadoDisponible=new HashMap<String,ArrayList<Object>>();
     // Lista piezas disponibles para Subasta 
-    private HashMap<Integer,ArrayList<Object>>listadoSubasta=new HashMap<Integer,ArrayList<Object>>();
+    private HashMap<String,ArrayList<Object>>listadoSubasta=new HashMap<String,ArrayList<Object>>();
 
     // piezas exhibidas
-    private HashMap<Integer,ArrayList<Object>> listadoexhibidas = new HashMap<Integer,ArrayList<Object>>();
-    private Empleado empleado;
+    private HashMap<String,ArrayList<Object>> listadoexhibidas = new HashMap<String,ArrayList<Object>>();
+    private Operador empleado;
     private Administrador administrador;
 
 
     // Constructor 
-    public Inventario(Empleado empleado){
+    public Inventario(Operador  empleado){
         
         this.empleado=empleado;
         //se deja el constructor vacio ya que se requiere que todos los atributos estesn inicializados en su valor general
     }
 
-    public HashMap<Integer,ArrayList<Object>> getListadoDisponible() {
+    public HashMap<String,ArrayList<Object>> getListadoDisponible() {
         return listadoDisponible;
     }
 
 
-    public HashMap<Integer,ArrayList<Object>>  getListadoexhibidas() {
+    public HashMap<String,ArrayList<Object>>  getListadoexhibidas() {
         return listadoexhibidas;
     }
  
  
-    public HashMap<Integer, ArrayList<Object>> getListadoSubasta() {
+    public HashMap<String, ArrayList<Object>> getListadoSubasta() {
         return listadoSubasta;
     }
 
     // Atributos del Administrador 
     //llenar los hashes 
-    public void AgregarPieza(Integer id, ArrayList<Object> atributos, Empleado empleado){
-        listadoDisponible.put(id, atributos);
+    public void AgregarPieza(String nombre, ArrayList<Object> atributos, Operador  empleado){
+        listadoDisponible.put(nombre, atributos);
         if (Pieza.getEstadoInventario() =="exhibida"){
-            listadoexhibidas.put(id,atributos);
+            listadoexhibidas.put(nombre,atributos);
 
         }
     }
     //agregar Piezas a subasta // validar con Subasta ==> para simular la subasta 
-    public void AgregarSubasta(Integer id, ArrayList<Object> atributos,Empleado empleado){
+    public void AgregarSubasta(String nombre, ArrayList<Object> atributos,Operador  empleado){
         if(Pieza.isDisponible()==false){
-            listadoSubasta.put(id, atributos);
+            listadoSubasta.put(nombre, atributos);
         }
     }
 
-    public void EliminarPieza(Integer id, ArrayList<Object> atributos, Empleado empleado){
+    public void EliminarPieza(String nombre, ArrayList<Object> atributos, Operador  empleado){
         if (this.administrador.getUser() =="Administrador"){
-            listadoDisponible.remove(id, atributos);
-            listadoexhibidas.remove(id, atributos);
+            listadoDisponible.remove(nombre, atributos);
+            listadoexhibidas.remove(nombre, atributos);
         }
     }    
 
-    public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos, Empleado empleado){
+    public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos, Operador empleado){
         return Pieza.AgregarEstado(estado,atributos);  
     }
 
