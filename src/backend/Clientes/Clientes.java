@@ -20,7 +20,7 @@ public abstract class Clientes {
     }
     
     //Metodos Abstractos 
-    public abstract void actualizarHistorial();
+    public abstract void actualizarHistorial(String Titulo, Integer Valor);
     
     public boolean VerificarDisponibilidad(Inventario inventario, String nombre ){
         boolean validar= false;
