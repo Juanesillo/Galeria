@@ -4,14 +4,15 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import backend.Clientes.Propietario;
+
+import backend.Clientes.cliente;
 
 public class Pieza {
     private String autor;
     private Integer id;
     private Date anio;
     private String lugarCreacion;
-    private Propietario propietario;
+    private cliente propietario;
     private String tipo;// QUe tipo de obra es (Cuadro, Escultura, ETC )
     private String titulo;// nombre de la pieza
     private static String estadoInventario;
@@ -21,7 +22,7 @@ public class Pieza {
     // constructor
 
 
-public Pieza(String autor, Integer id, Date anio, String lugarCreacion, Propietario propietario, String tipo,
+public Pieza(String autor, Integer id, Date anio, String lugarCreacion, cliente propietario, String tipo,
             String titulo, String estadoInventario, boolean disponible) {
         this.autor = autor;
         this.id = id;
@@ -61,7 +62,7 @@ public Pieza(String autor, Integer id, Date anio, String lugarCreacion, Propieta
     }
 
 
-    public Propietario getPropietario() {
+    public cliente getPropietario() {
         return propietario;
     }
 
@@ -79,7 +80,7 @@ public Pieza(String autor, Integer id, Date anio, String lugarCreacion, Propieta
     //metodos
 
 
-    public ArrayList<Object> atributos(String autor, Integer id, Date anio, String lugarCreacion,Propietario propietario,String tipo, String Titulo){
+    public ArrayList<Object> atributos(String autor, Integer id, Date anio, String lugarCreacion,cliente propietario,String tipo, String Titulo){
         ArrayList<Object> Atributos= new ArrayList<Object>();
 
         Atributos.add(this.autor);
