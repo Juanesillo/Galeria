@@ -34,8 +34,15 @@ public class Inventario {
     public HashMap<Integer,ArrayList<Object>>  getListadoexhibidas() {
         return listadoexhibidas;
     }
+ 
+ 
+    public HashMap<Integer, ArrayList<Object>> getListadoSubasta() {
+        return listadoSubasta;
+    }
+
+    // Atributos del Administrador 
     //llenar los hashes 
-    public void AgregarPieza(Integer id, ArrayList<Object> atributos){
+    public void AgregarPieza(Integer id, ArrayList<Object> atributos, Empleado empleado){
         listadoDisponible.put(id, atributos);
         if (Pieza.getEstadoInventario() =="exhibida"){
             listadoexhibidas.put(id,atributos);
@@ -43,20 +50,20 @@ public class Inventario {
         }
     }
     //agregar Piezas a subasta // validar con Subasta ==> para simular la subasta 
-    public void AgregarSubasta(Integer id, ArrayList<Object> atributos){
+    public void AgregarSubasta(Integer id, ArrayList<Object> atributos,Empleado empleado){
         if(Pieza.isDisponible()==false){
             listadoSubasta.put(id, atributos);
         }
     }
 
-    public void EliminarPieza(Integer id, ArrayList<Object> atributos){
+    public void EliminarPieza(Integer id, ArrayList<Object> atributos, Empleado empleado){
         if (this.administrador.getUser() =="Administrador"){
             listadoDisponible.remove(id, atributos);
             listadoexhibidas.remove(id, atributos);
         }
-    }
+    }    
 
-    public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos){
+    public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos, Empleado empleado){
         return Pieza.AgregarEstado(estado,atributos);  
     }
 
