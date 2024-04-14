@@ -11,7 +11,6 @@ import JDBC.User;
 
 import javax.swing.*;
 
-import com.mysql.cj.xdevapi.Client;
 
 // objetivo de la clase, permitir que el usuario de la Galeria realice su login y ejecute la gui
 public class LoginGui extends BaseFrame {
@@ -123,31 +122,23 @@ public class LoginGui extends BaseFrame {
                 User user= MyJDBC.validateLogin(Username, password);
 
                 
-            if (user != null){
+            if (user != null && user.getUsername().equals("ADMINISTRADOR") ){
                 // eliminar esta gui
                 LoginGui.this.dispose();
 
                 //Hacer validacion Respectiva para Clientes
 
-                if (user.getUsername()=="ADMINISTRADOR"){
-                    AdministradorGUI administradorGUI= new AdministradorGUI();
-                    administradorGUI.setVisible(true);
-                    JOptionPane.showMessageDialog(administradorGUI, "LogIn Exitoso");
-                }
-                if (user.getUsername()=="OPERADOR"){}
-                if (user.getUsername()=="CAJERO"){}
-
-                else{// clase Cliente 
-                    // Hacer visible clase cliente         
-                    ClienteGUI clienteGUI= new ClienteGUI();
-                    clienteGUI.setVisible(true);
-                    JOptionPane.showMessageDialog(clienteGUI, "LogIn Exitoso");
-                }
+                AdministradorGUI administradorGUI= new AdministradorGUI();
+                administradorGUI.setVisible(true);
+                JOptionPane.showMessageDialog(administradorGUI, "LogIn Exitoso");
                 
+           
+            }
+            
 
                 // Conectar con la GUI específica
 
-            }else{JOptionPane.showMessageDialog(LoginGui.this, "Error");}
+            else{JOptionPane.showMessageDialog(LoginGui.this, "Error");}
 
             }
             

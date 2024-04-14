@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import backend.Inventario;
 
-public class cliente extends Clientes {
+public class Cliente extends Clientes {
 
     private String contacto;
     private String idCliente;
@@ -12,7 +12,7 @@ public class cliente extends Clientes {
     private HashMap<String,Integer> ListaHistorial=new HashMap<String,Integer>();
     
 
-    public cliente(String contacto, String idCliente, Inventario inventario) {
+    public Cliente(String contacto, String idCliente, Inventario inventario) {
         super(contacto, idCliente, inventario);
     }
 

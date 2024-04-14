@@ -18,12 +18,14 @@ public class Inventario {
     private HashMap<String,ArrayList<Object>> listadoexhibidas = new HashMap<String,ArrayList<Object>>();
     private Operador empleado;
     private Administrador administrador;
+    private Pieza pieza;
 
 
     // Constructor 
-    public Inventario(Operador  empleado){
+    public Inventario(Operador  empleado, Pieza pieza){
         
         this.empleado=empleado;
+        this.pieza=pieza;
         //se deja el constructor vacio ya que se requiere que todos los atributos estesn inicializados en su valor general
     }
 

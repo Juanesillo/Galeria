@@ -10,15 +10,15 @@ import java.sql.SQLException;
 public class MyJDBC {
     //Configuracion SQL
 
-    private static final String url= "jdb:mysql://127.0.0.1:3306/APPGALERIA";
+    private static final String url= "jdbc:mysql://127.0.0.1:3306/galeryapp";
     private static final String user= "root";
-    private static final String password= "MonkMode.01*";
+    private static final String Password= "MonkMode.01*";
 
 
     // generar la conexion con la Base de datos 
-    public static User validateLogin(String Username, String password){
+    public static User validateLogin(String username, String password){
         try{
-            Connection connection= DriverManager.getConnection(url, user, password);
+            Connection connection= DriverManager.getConnection(url, user, Password);
 
             // crear Query o Consulta
 
@@ -27,7 +27,7 @@ public class MyJDBC {
 
             //remplazar los ? por valores 
             //los parameterIndex asignan el primer y segundo valor de la consulta realizada
-            preparedStatement.setString(1,Username);
+            preparedStatement.setString(1,username);
             preparedStatement.setString(2, password);
 
             // Ejecutar la consulta 
@@ -41,7 +41,9 @@ public class MyJDBC {
 
                 int UserId= resultSet.getInt("id");
 
-                return new User(UserId,Username,password);
+                // si se implementa para balance obtener balance de sql
+
+                return new User(UserId,username,password);
             }
 
 
