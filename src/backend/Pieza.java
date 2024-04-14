@@ -90,7 +90,7 @@ public static void setDisponible(boolean disponible) {
     //metodos
 
 
-    public ArrayList<Object> atributos(String autor, Integer id, Date anio, String lugarCreacion,Cliente propietario,String tipo, String Titulo){
+    public ArrayList<Object> atributos(String autor, Integer id, Integer anio, String lugarCreacion,String tipo, String Titulo){
         ArrayList<Object> Atributos= new ArrayList<Object>();
 
         Atributos.add(this.autor);

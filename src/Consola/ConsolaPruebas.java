@@ -1,5 +1,7 @@
 package Consola;
 
+import java.util.ArrayList;
+
 import backend.Inventario;
 import backend.Pieza;
 
@@ -25,9 +27,16 @@ public class ConsolaPruebas {
         Cliente cliente= new Cliente("123", "123", inventario);
 
         // Mostrar información de la pieza
-        System.out.println("Información de la pieza:");
-        System.out.println("Nombre: " + pieza.getTitulo());
-        System.out.println("ID: " + pieza.getId());
+       ArrayList<Object>atributos= pieza.atributos("Juan", x, y, "Bogota", "video", "ayer");
+        inventario.AgregarPieza("ayer", atributos, operador);
+        
+        
+
+        System.out.println(inventario.getListadoDisponible());
+
+
+
+
        
     }
 }
