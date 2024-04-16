@@ -1,8 +1,7 @@
-package backend;
+package backend.gestionPiezaInventario;
 
 import java.util.*;
 
-import backend.Pieza;
 import backend.Trabajadores.Administrador;
 import backend.Trabajadores.Operador;
 
@@ -68,6 +67,7 @@ public class Inventario {
 
     public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos, Operador empleado){
         return Pieza.AgregarEstado(estado,atributos);  
+     
     }
 
 

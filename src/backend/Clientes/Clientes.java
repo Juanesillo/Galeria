@@ -3,7 +3,7 @@ package backend.Clientes;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import backend.Inventario;
+import backend.gestionPiezaInventario.Inventario;
 
 public abstract class Clientes {
 

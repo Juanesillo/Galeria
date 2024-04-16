@@ -2,7 +2,7 @@ package backend.Clientes;
 
 import java.util.HashMap;
 
-import backend.Inventario;
+import backend.gestionPiezaInventario.Inventario;
 
 public class Cliente extends Clientes {
 
@@ -21,5 +21,7 @@ public class Cliente extends Clientes {
         ListaHistorial.put(Titulo, valor);
        
     }
+
+ 
 
 }

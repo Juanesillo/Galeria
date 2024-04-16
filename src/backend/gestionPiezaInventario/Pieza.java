@@ -1,4 +1,4 @@
-package backend;
+package backend.gestionPiezaInventario;
 
 import java.util.Date;
 import java.util.ArrayList;
@@ -130,6 +130,20 @@ public static void setDisponible(boolean disponible) {
         return atributos;
     
     }
+
+    public static ArrayList<Object> AgregarEspecificos(ArrayList<Object> atributos,ArrayList<Object> especificos){
+
+        for (int i=0; i<especificos.size();i++){
+            atributos.add(especificos.get(i));
+        }
+        return atributos;
+
+    }
+
+    // forma de implementarlo atributos = AgregarEspecificos(atributos, especificos);
+
+
+
     
 
     }

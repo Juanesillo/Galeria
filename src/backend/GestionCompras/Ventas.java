@@ -1,6 +1,7 @@
-package backend;
+package backend.GestionCompras;
 
 import backend.Clientes.Cliente;
+import backend.gestionPiezaInventario.Inventario;
 
 public abstract class Ventas{
 
