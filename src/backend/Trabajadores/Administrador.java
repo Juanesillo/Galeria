@@ -1,14 +1,15 @@
 package backend.Trabajadores;
 
 public class Administrador {
-    private String User="Administrador";
-    private String Password="ADMIN";
-
+    private String User;
+    private String Password;
     public String getUser() {
-        return User;   
+        return User;
     }
-    public String getPassword(){
+    public String getPassword() {
         return Password;
     }
 
+  
+    
 }
