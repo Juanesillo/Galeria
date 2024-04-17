@@ -29,6 +29,8 @@ public class Operador {
 
     }
 
+    public static void IniciarSubasta(){}
+
 
 
 

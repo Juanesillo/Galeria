@@ -16,15 +16,15 @@ public class Inventario {
     // piezas exhibidas
     private HashMap<String,ArrayList<Object>> listadoexhibidas = new HashMap<String,ArrayList<Object>>();
   
-    private Administrador administrador;
+    
     private Pieza pieza;
 
 
     // Constructor 
-    public Inventario( Pieza pieza){
+    public Inventario( ){// mas de una Pieza
         
        
-        this.pieza=pieza;
+
         //se deja el constructor vacio ya que se requiere que todos los atributos estesn inicializados en su valor general
     }
 
@@ -44,9 +44,9 @@ public class Inventario {
 
     // Atributos del Administrador 
     //llenar los hashes 
-    public void AgregarPieza(String nombre, ArrayList<Object> atributos){
+    public void AgregarPieza(String nombre, ArrayList<Object> atributos, Pieza pieza){
         listadoDisponible.put(nombre, atributos);
-        if (Pieza.getEstadoInventario() =="exhibida"){
+        if (pieza.getEstadoInventario() =="exhibida"){
             listadoexhibidas.put(nombre,atributos);
 
         }
@@ -65,8 +65,8 @@ public class Inventario {
         
     }    
 
-    public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos){
-        return Pieza.AgregarEstado(estado,atributos);  
+    public ArrayList<Object> cambiarEstadoPieza(Pieza pieza,String estado, ArrayList<Object> atributos){
+        return pieza.AgregarEstado(estado,atributos);  
      
     }
 

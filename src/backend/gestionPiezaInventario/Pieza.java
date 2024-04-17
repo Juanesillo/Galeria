@@ -53,7 +53,7 @@ public static void setDisponible(boolean disponible) {
     }
    
 
-    public static String getEstadoInventario() {
+    public String getEstadoInventario() {
         return estadoInventario;
     }
     public boolean isDisponible() {
@@ -104,7 +104,7 @@ public static void setDisponible(boolean disponible) {
         
     }           
     // metodo auxiliar 
-    public static ArrayList<Object>  AgregarEstado(String estado, ArrayList<Object> atributos){
+    public ArrayList<Object>  AgregarEstado(String estado, ArrayList<Object> atributos){
             // Agrega o Actualiza el Estado dentro del Array 
             Integer comparador= 0;
             Iterator <Object> it= atributos.iterator();
