@@ -19,7 +19,7 @@ public class ConsolaPruebas {
         Pieza pieza = new Pieza("juan", x, y, "Bogota", "video", "ayer", "Bueno", true);
 
         // Crear un inventario con el operador y la pieza
-        Inventario inventario = new Inventario(operador, pieza);
+        Inventario inventario = new Inventario(pieza);
 
         // crear Cliente
 
@@ -27,7 +27,7 @@ public class ConsolaPruebas {
 
         // Mostrar información de la pieza
        ArrayList<Object>atributos= pieza.atributos("Juan", x, y, "Bogota", "video", "ayer");
-        inventario.AgregarPieza("ayer", atributos, operador);
+        inventario.AgregarPieza("ayer", atributos);
         
         
 

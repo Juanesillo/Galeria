@@ -15,15 +15,15 @@ public class Inventario {
 
     // piezas exhibidas
     private HashMap<String,ArrayList<Object>> listadoexhibidas = new HashMap<String,ArrayList<Object>>();
-    private Operador empleado;
+  
     private Administrador administrador;
     private Pieza pieza;
 
 
     // Constructor 
-    public Inventario(Operador  empleado, Pieza pieza){
+    public Inventario( Pieza pieza){
         
-        this.empleado=empleado;
+       
         this.pieza=pieza;
         //se deja el constructor vacio ya que se requiere que todos los atributos estesn inicializados en su valor general
     }
@@ -44,7 +44,7 @@ public class Inventario {
 
     // Atributos del Administrador 
     //llenar los hashes 
-    public void AgregarPieza(String nombre, ArrayList<Object> atributos, Operador  empleado){
+    public void AgregarPieza(String nombre, ArrayList<Object> atributos){
         listadoDisponible.put(nombre, atributos);
         if (Pieza.getEstadoInventario() =="exhibida"){
             listadoexhibidas.put(nombre,atributos);
@@ -52,20 +52,20 @@ public class Inventario {
         }
     }
     //agregar Piezas a subasta // validar con Subasta ==> para simular la subasta 
-    public void AgregarSubasta(String nombre, ArrayList<Object> atributos,Operador  empleado){
+    public void AgregarSubasta(String nombre, ArrayList<Object> atributos){
         if(Pieza.isDisponible()==false){
             listadoSubasta.put(nombre, atributos);
         }
     }
 
-    public void EliminarPieza(String nombre, ArrayList<Object> atributos, Operador  empleado){
-        if (this.administrador.getUser() =="Administrador"){
+    public void EliminarPieza(String nombre, ArrayList<Object> atributos){
+      
             listadoDisponible.remove(nombre, atributos);
             listadoexhibidas.remove(nombre, atributos);
-        }
+        
     }    
 
-    public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos, Operador empleado){
+    public ArrayList<Object> cambiarEstadoPieza(String estado, ArrayList<Object> atributos){
         return Pieza.AgregarEstado(estado,atributos);  
      
     }

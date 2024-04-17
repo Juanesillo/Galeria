@@ -2,13 +2,24 @@ package backend.Trabajadores;
 
 public class Administrador {
     private String User;
-    private String Password;
+    
+
+    public Administrador(String user){
+        this.User=user;
+    }
+
+
+
+    // Obtener una doble validación
     public String getUser() {
         return User;
     }
-    public String getPassword() {
-        return Password;
-    }
+
+    //metodo validar Cliente 
+
+
+    
+    
 
   
     
