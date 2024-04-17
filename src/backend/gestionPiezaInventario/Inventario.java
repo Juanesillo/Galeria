@@ -52,16 +52,16 @@ public class Inventario {
         }
     }
     //agregar Piezas a subasta // validar con Subasta ==> para simular la subasta 
-    public void AgregarSubasta(String nombre, ArrayList<Object> atributos){
-        if(Pieza.isDisponible()==false){
-            listadoSubasta.put(nombre, atributos);
+    public void AgregarSubasta(Pieza pieza, ArrayList<Object> atributos){
+        if(pieza.isDisponible()==false){
+            listadoSubasta.put(pieza.getTitulo(), atributos);
         }
     }
 
-    public void EliminarPieza(String nombre, ArrayList<Object> atributos){
+    public void EliminarPieza(Pieza pieza, ArrayList<Object> atributos){
       
-            listadoDisponible.remove(nombre, atributos);
-            listadoexhibidas.remove(nombre, atributos);
+            listadoDisponible.remove(pieza.getTitulo(), atributos);
+            listadoexhibidas.remove(pieza.getTitulo(), atributos);
         
     }    
 

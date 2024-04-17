@@ -10,7 +10,7 @@ import backend.gestionPiezaInventario.Pieza;
 public class ConsolaPruebas {
     public static void main(String[] args) {
         // Crear un operador
-        Operador operador = new Operador();
+
 
         // Crear una pieza
         Integer x = 123;

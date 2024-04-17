@@ -56,7 +56,7 @@ public static void setDisponible(boolean disponible) {
     public static String getEstadoInventario() {
         return estadoInventario;
     }
-    public static boolean isDisponible() {
+    public boolean isDisponible() {
         return disponible;
     }
     
