@@ -2,16 +2,17 @@ package backend.Trabajadores;
 
 import java.util.*;
 
+import backend.GestionCompras.Subasta;
 import backend.gestionPiezaInventario.Pieza;
 
-public class Operador {
+public class Operador{
 
 // solo se encarga de la subasta 
-    private Pieza pieza;
+    private Subasta subasta;
     private static HashMap<String,Integer> Registro = new HashMap<String,Integer>();
   
-    public Operador(Pieza pieza){
-        this.pieza= pieza;
+    public Operador(Subasta subasta){
+        this.subasta=subasta;
 
     }
 
