@@ -59,12 +59,7 @@ public class AdministradorGUI extends BaseFrame {
       });
       add(AgregarPieza);
     
-
-    
-      
-
-
-      // Boton Validar Usuario
+    // Boton Validar Usuario
 
 
       JButton ValidarUsuario= new JButton("AGREGAR PIEZA");
@@ -91,6 +86,11 @@ public class AdministradorGUI extends BaseFrame {
       
 
       //Boton Devolucion Pieza
+
+
+      //Boton Retirar piezas del Inventario según hashmap
+
+      
 
         
 

@@ -2,7 +2,7 @@ package backend.Clientes;
 
 import java.util.HashMap;
 
-import backend.Trabajadores.Administrador;
+
 import backend.gestionPiezaInventario.Inventario;
 
 public class Cliente extends Clientes {
@@ -11,7 +11,7 @@ public class Cliente extends Clientes {
     private String idCliente;
     private Inventario inventario;
     private HashMap<String,Integer> ListaHistorial=new HashMap<String,Integer>();
-    private boolean validar;
+    private static boolean validar;
   
     
 
@@ -25,8 +25,12 @@ public class Cliente extends Clientes {
        
     }
 
-    public void setValidar(boolean validar) {
-        this.validar = validar;
+    public static void setValidar(boolean validar) {
+        Cliente.validar = validar;
+    }
+
+    public static boolean getValidar(){
+        return Cliente.validar;
     }
 
     
