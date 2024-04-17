@@ -38,13 +38,18 @@ public abstract class Ventas{
     
     //metodos 
 
-    public abstract Integer generarID();//modificar tanto en subasta como en valor Fijo 
+    public  Integer generarID(){
+        
+        return null;
+
+        
+    }//modificar tanto en subasta como en valor Fijo 
 
    
 
 
     // Consideración si el valor booleano de la pieza es false => Esta disponible solo para subasta
-    public abstract boolean isDisponible();
+    public abstract boolean EstaDisponible();
 
     public abstract void venderPieza();
     

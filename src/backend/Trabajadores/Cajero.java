@@ -16,14 +16,10 @@ public class Cajero extends Ventas{
         //TODO Auto-generated constructor stub
     }
 
-    @Override
-    public Integer generarID() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'generarID'");
-    }
+    
 
     @Override
-    public boolean isDisponible() {
+    public boolean EstaDisponible() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'isDisponible'");
     }

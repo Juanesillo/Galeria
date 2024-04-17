@@ -2,12 +2,19 @@ package backend.GestionCompras;
 
 import backend.Clientes.Cliente;
 import backend.gestionPiezaInventario.Inventario;
+import backend.gestionPiezaInventario.Pieza;
 
 public class ValorFijo extends Ventas{
 
-    public ValorFijo(Cliente cliente, String idVenta, Inventario inventario) {
+    private Cliente cliente;
+    private String idVenta;
+    private Inventario inventario;
+    private Integer valorPieza;
+    private Pieza pieza;
+
+    public ValorFijo(Cliente cliente, String idVenta, Inventario inventario, Integer valorPieza, Pieza pieza) {
         super(cliente, idVenta, inventario);
-        //TODO Auto-generated constructor stub
+        this.valorPieza=valorPieza;
     }
 
     @Override
@@ -17,9 +24,8 @@ public class ValorFijo extends Ventas{
     }
 
     @Override
-    public boolean isDisponible() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isDisponible'");
+    public boolean EstaDisponible() {
+        return this.pieza.isDisponible();
     }
 
     @Override
