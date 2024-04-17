@@ -6,6 +6,8 @@ import backend.Trabajadores.Administrador;
 import backend.Trabajadores.Operador;
 
 
+
+// comprabar posible adaptacion a lista de piezas
 public class Inventario {
     // atributos    
     //lista piezas disponibles para compra

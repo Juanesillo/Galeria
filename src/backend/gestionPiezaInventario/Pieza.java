@@ -104,7 +104,9 @@ public static void setDisponible(boolean disponible) {
         
     }           
     // metodo auxiliar 
-    public ArrayList<Object>  AgregarEstado(String estado, ArrayList<Object> atributos){
+
+    // Agregar el estado dentro de la pieza validar si esta disponible o no
+    public ArrayList<Object>  AgregarEstado(String estado, ArrayList<Object> atributos){//validar en caso de que sea importante agregar la pieza de la cual se esta iterando
             // Agrega o Actualiza el Estado dentro del Array 
             Integer comparador= 0;
             Iterator <Object> it= atributos.iterator();
@@ -125,6 +127,14 @@ public static void setDisponible(boolean disponible) {
 
             return atributos;
             }
+            // ajustar posible implementacion atributos en el constructor 
+
+            // this.atributos.add(estado);
+
+
+            // para estos metodos es importante validar primero los atributos de las piezas y lugo agregarlas en inventario
+
+            // se debe validar para mejorar implementación con lista de piezas en inventario 
     public static ArrayList<Object> AgregarPropietario(Cliente cliente, ArrayList<Object> atributos){
         atributos.add(cliente);
         return atributos;
