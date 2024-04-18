@@ -13,44 +13,54 @@ public class Pieza {
     private String lugarCreacion;
     private String tipo;// QUe tipo de obra es (Cuadro, Escultura, ETC )
     private String titulo;// nombre de la pieza
-    private static String estadoInventario;
-    private static boolean disponible;// disponible solo para subasta (false);
+    private  String estadoInventario;
+    private  boolean disponible;// disponible solo para subasta (false);
+    private  Integer precio;
 
     
     // constructor
 
 
 public Pieza(String autor, Integer id, Integer anio, String lugarCreacion, String tipo,
-            String titulo, String estadoInventario, boolean disponible) {
+            String titulo, String estadoInventario, boolean disponible, Integer precio ) {
         this.autor = autor;
         this.id = id;
         this.anio = anio;
         this.lugarCreacion = lugarCreacion;
         this.tipo = tipo;
         this.titulo = titulo;
-        Pieza.estadoInventario = estadoInventario;
-        Pieza.disponible = disponible;
+        this.precio= precio;
+        this.estadoInventario = estadoInventario;
+        this.disponible = disponible;
     }
 
 
 
+
+
+    
+
+    
+
 //setters
-public static void setEstadoInventario(String estadoInventario) {
-    Pieza.estadoInventario = estadoInventario;
-}
 
-public static void setDisponible(boolean disponible) {
-    Pieza.disponible = disponible;
-}
+    public void setEstadoInventario(String estadoInventario) {
+        this.estadoInventario = estadoInventario;
+    }
 
 
 
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
 
+
+    
     //getters
     public Integer getId() {
         return id;
+
     }
-   
 
     public String getEstadoInventario() {
         return estadoInventario;
@@ -85,11 +95,15 @@ public static void setDisponible(boolean disponible) {
         return titulo;
     }
 
+    public Integer getPrecio(){
+        return precio;
+    }
+   
 
     //metodos
 
 
-    public ArrayList<Object> atributos(String autor, Integer id, Integer anio, String lugarCreacion,String tipo, String Titulo){
+    public ArrayList<Object> atributos(String autor, Integer id, Integer anio, String lugarCreacion,String tipo, String Titulo, Integer precio){
         ArrayList<Object> Atributos= new ArrayList<Object>();
 
         Atributos.add(this.autor);
@@ -98,6 +112,7 @@ public static void setDisponible(boolean disponible) {
         Atributos.add(this.lugarCreacion);
         Atributos.add(this.tipo);
         Atributos.add(this.titulo);
+        Atributos.add(this.precio);
 
         return Atributos;
         

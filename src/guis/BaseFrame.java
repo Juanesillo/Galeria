@@ -2,8 +2,9 @@ package guis;
 
 import javax.swing.*;
 import Constantes.Constantes;
+import backend.gestionPiezaInventario.Inventario;
 public abstract class BaseFrame extends JFrame{
-
+    // crear clase galeria y crearla de cero aca 
     // Crear el constructor del BaseFrame que inicializa la gui 
     public BaseFrame(String titulo){
         initialize(titulo);
