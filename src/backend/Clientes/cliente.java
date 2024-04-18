@@ -96,35 +96,15 @@ public class Cliente  {
                 //validar que el pago es posible 
                 // ajustar cantidad de dinero establecida
     
-    
             }
-
-
 
         }catch (Exception e){
             System.out.println("No cuentas con saldo suficiente en tu cuenta ");
-
-
-        }
-       
-     
-
-
-   ;
-
-          
-
-
-        
+        }        
         // validar si la obra de arte esta disponible para ser comprada 
-       
-        
-
-        }
-
-
-
-        
+    }
+    
+   
     
 }
     
