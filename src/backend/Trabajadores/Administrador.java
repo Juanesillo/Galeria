@@ -1,8 +1,8 @@
 package backend.Trabajadores;
 
 import java.util.*;
-
 import backend.Clientes.Cliente;
+
 
 public class Administrador {
     private String User;
@@ -22,9 +22,8 @@ public class Administrador {
     }
 
     //metodo validar Cliente 
-    public void ValidarCliente(){
-        Cliente.setValidar(true);
-
+    public void ValidarCliente(Cliente cliente){
+        cliente.setValidar(true);// registrar los clientes en una lista para implementar este metodo 
     }
 
     

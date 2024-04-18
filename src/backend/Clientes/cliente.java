@@ -11,6 +11,7 @@ public class Cliente  {
     private String contacto;
     private String idCliente;
     private Cajero cajero;
+    private double Dinero;
 
   // listas implementadas en cliente
 
@@ -18,23 +19,41 @@ public class Cliente  {
     private HashMap<String, ArrayList<Object>> Compras = new HashMap<String,ArrayList<Object>>();
 
 
-    private static boolean validar;// si el cliente esta validado por el administrador 
+    private boolean validar;// si el cliente esta validado por el administrador 
     
     
 
-    public Cliente(String contacto, String idCliente, Cajero cajero) {
+    public Cliente(String contacto, String idCliente, Cajero cajero,double Dinero) {
         this.contacto= contacto;
         this.idCliente=idCliente;
         this.cajero= cajero;
+        this.Dinero=Dinero;
 
 
     }
 
     // implementacion de getter
+    
+
+    public String getContacto() {
+        return contacto;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
 
     
 
+    public void setValidar(boolean validar) {
+        this.validar = validar;
+    }
 
+    
+
+    public boolean getValidar() {
+        return validar;
+    }
 
 
 
@@ -45,23 +64,6 @@ public class Cliente  {
         Historial.put(Titulo, atributos);
     }
 
-    public String getContacto() {
-        return contacto;
-    }
-
-    public String getIdCliente() {
-        return idCliente;
-    }
-
-    public static void setValidar(boolean validar) {
-        Cliente.validar = validar;
-    }
-
-    public static boolean getValidar(){
-        return Cliente.validar;
-    }
-
-
     // metodos por cliente
 
     public void actualizarHistorialCompras(String Titulo, ArrayList<Object> atributos)  {
@@ -71,6 +73,7 @@ public class Cliente  {
    
     
     public String Comprar(Cajero Cajero, String nombre, String metododepago){
+
         return metododepago;
 
             // Cajero validar si es posible Compra
