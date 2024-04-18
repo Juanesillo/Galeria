@@ -5,23 +5,18 @@ import backend.gestionPiezaInventario.Inventario;
 
 public abstract class Ventas{
 
-    protected Cliente cliente;
     protected String idVenta;
     protected Inventario inventario;
 
-    public Ventas(Cliente cliente, String idVenta, Inventario inventario){
 
-        this.cliente=cliente;
+    public Ventas(Inventario inventario){
+
         this.idVenta=idVenta;
         this.inventario=inventario;
     }
 
 
     // getters
-
-    public Cliente getCliente() {
-        return cliente;
-    }
 
 
     public String getIdVenta() {
@@ -32,6 +27,15 @@ public abstract class Ventas{
     public Inventario getInventario() {
         return inventario;
     }
+    // setters
+    public void setIdVenta(String idVenta) {
+        this.idVenta = idVenta;
+    }
+
+    public Integer IdAleatorio(){
+        return (int) (Math.random()*201);
+    }
+  
 
 
 
@@ -48,8 +52,11 @@ public abstract class Ventas{
    
 
 
+    
+
+
     // Consideración si el valor booleano de la pieza es false => Esta disponible solo para subasta
-    public abstract boolean EstaDisponible();
+    public abstract boolean EstaDisponible(String nombre);
 
     public abstract void venderPieza();
     

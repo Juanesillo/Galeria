@@ -1,27 +1,48 @@
 package backend.Trabajadores;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import backend.Clientes.Cliente;
 import backend.GestionCompras.Ventas;
 import backend.gestionPiezaInventario.Inventario;
 
 public class Cajero extends Ventas{
+    private Inventario inventario;
+    private HashMap<String, Integer> RegistroPagos = new HashMap<>();
+
 
 
 
 
     
 
-    public Cajero(Cliente cliente, String idVenta, Inventario inventario) {
-        super(cliente, idVenta, inventario);
+    public Cajero(Inventario inventario) {
+        super(inventario);
         //TODO Auto-generated constructor stub
     }
 
     
 
     @Override
-    public boolean EstaDisponible() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isDisponible'");
+    public boolean EstaDisponible(String nombre) {
+        boolean validar= false;
+        boolean retorno= false;
+
+
+        HashMap<String, ArrayList<Object>>mapaDisponible= inventario.getListadoDisponible();
+        if (mapaDisponible.containsKey(nombre)){
+            validar=true;
+        }
+
+        if (validar){
+            ArrayList<Object> atributos= mapaDisponible.get(nombre);
+            if (atributos.contains(true)){
+                retorno= true;
+            }
+
+        }
+        return retorno;
     }
 
     @Override
@@ -29,5 +50,7 @@ public class Cajero extends Ventas{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'venderPieza'");
     }
+
+
 
 }
