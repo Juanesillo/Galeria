@@ -30,6 +30,8 @@ public class Inventario {
         //se deja el constructor vacio ya que se requiere que todos los atributos estesn inicializados en su valor general
     }
 
+    
+
     public HashMap<String,ArrayList<Object>> getListadoDisponible() {
         return listadoDisponible;
     }

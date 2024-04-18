@@ -72,11 +72,47 @@ public class Cliente  {
 
    
     
-    public String Comprar(Cajero Cajero, String nombre, String metododepago){
+    public void Comprar(Cajero Cajero, String nombre, String metododepago)throws Exception{
 
-        return metododepago;
+        // Cajero validar si es posible Compra
+        //validar de manera automatica con la calse cajero
+        try{
+            boolean disponible= cajero.EstaDisponible(nombre); 
+            if (disponible){
+                Inventario inventario= cajero.getInventario();
+                HashMap<String,ArrayList<Object>> inv=inventario.getListadoDisponible();
+                ArrayList<Object> array= inv.get(nombre);
+                Integer costoPieza= (Integer) array.get(6);
+                Integer valores= (int) (this.Dinero - costoPieza);
+                if(valores <0){
+                    throw new Exception("Saldo insuficiente");
+                }
+                else{
+                    this.Dinero= valores;
+                    cajero.registrar(nombre, costoPieza);
+                    
+                }
+    
+                //validar que el pago es posible 
+                // ajustar cantidad de dinero establecida
+    
+    
+            }
 
-            // Cajero validar si es posible Compra
+
+
+        }catch (Exception e){
+            System.out.println("No cuentas con saldo suficiente en tu cuenta ");
+
+
+        }
+       
+     
+
+
+   ;
+
+          
 
 
         

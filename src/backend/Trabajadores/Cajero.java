@@ -22,6 +22,10 @@ public class Cajero extends Ventas{
         //TODO Auto-generated constructor stub
     }
 
+    public void registrar(String nombre, Integer valor){
+        RegistroPagos.put(nombre,valor);
+    }
+
     
 
     @Override
