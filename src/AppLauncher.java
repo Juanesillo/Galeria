@@ -12,7 +12,7 @@ public class AppLauncher {
             // Esta linea de codigo ejecuta LoginGui para que aparezca en pantalla
             @Override
             public void run(){
-              new LoginGui().setVisible(true);
+              //new LoginGui().setVisible(true);
               //new RegisterGui().setVisible(true);
               //new ClienteGUI().setVisible(true);
             

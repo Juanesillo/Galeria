@@ -53,6 +53,8 @@ public class AdministradorGUI extends BaseFrame {
         public void actionPerformed(ActionEvent e) {
 
             // Conectar con Inventario Generar conexión AGREGAR PIEZA
+
+            
             
         }
         
@@ -62,7 +64,7 @@ public class AdministradorGUI extends BaseFrame {
     // Boton Validar Usuario
 
 
-      JButton ValidarUsuario= new JButton("AGREGAR PIEZA");
+      JButton ValidarUsuario= new JButton("Validar Usuario");
       ValidarUsuario.setForeground(Constantes.ColorTexto);
       ValidarUsuario.setBounds(20,270,getWidth()-60,30);
       ValidarUsuario.setBackground(Constantes.TPColor);
@@ -86,6 +88,30 @@ public class AdministradorGUI extends BaseFrame {
       
 
       //Boton Devolucion Pieza
+
+      JButton DevolucionPieza= new JButton("Devolución Pieza");
+      DevolucionPieza.setForeground(Constantes.ColorTexto);
+      DevolucionPieza.setBounds(20,370,getWidth()-60,30);
+      DevolucionPieza.setBackground(Constantes.TPColor);
+      DevolucionPieza.setFont(new Font("Dialog",Font.BOLD,20));
+
+      DevolucionPieza.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            // Conectar con liente para validar usuario 
+
+
+            System.out.println("hola Administrador");
+            
+        }
+        
+      });
+      add(DevolucionPieza);
+      
+
+
 
 
       //Boton Retirar piezas del Inventario según hashmap
