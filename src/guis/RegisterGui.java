@@ -175,12 +175,11 @@ public class RegisterGui extends BaseFrame {
                         JOptionPane.showMessageDialog(loginGui, "Registro del cliente exitoso");
 
 
-                        // no es necesario validar algo mas solo cliente por ahora... es mejor hacerlo en el gui de cliente y hacer una lista de objetos de tipo cliente 
+                        // no es necesario validar algo mas solo cliente por ahora... es mejor hacerlo en el gui de cliente y hacer una lista de objetos de tipo cliente
 
 
-
-
-
+                    }else{
+                        JOptionPane.showMessageDialog(RegisterGui.this, "Usuario existente ");
                     }
 
 
