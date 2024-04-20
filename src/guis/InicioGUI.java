@@ -6,14 +6,30 @@ import javax.swing.*;;
 public class InicioGUI extends BaseFrame {
 
     public InicioGUI(String titulo) {
-        super(titulo);
-        //TODO Auto-generated constructor stub
+        super("Inicio Carga");
+       
     }
 
     @Override
     protected void addguicomponent() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addguicomponent'");
+
+
+
+        // Boton Crear desde 0
+
+        JButton Boton= new JButton("Crear Galeria desde cero");
+
+        Boton.setBackground(Constantes.TPColor);
+        Boton.setForeground(Constantes.ColorTexto);
+        Boton.setBounds(20,170,getWidth()-60,30);
+        Boton.
+        add(Boton);
+        // Cargar nombre del archivo  LABEL CARGAR ARCHIVO
+
+            // ESPACIO PARA COLOCAR EL NOMBRE DEL ARCHIVO 
+
+
+       
     }
 
 }

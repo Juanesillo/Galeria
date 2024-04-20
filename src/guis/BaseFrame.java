@@ -5,7 +5,7 @@ import Constantes.Constantes;
 import backend.gestionPiezaInventario.Inventario;
 public abstract class BaseFrame extends JFrame{
 
-    public Inventario inventario= new Inventario();
+    
     // crear clase galeria y crearla de cero aca 
     // Crear el constructor del BaseFrame que inicializa la gui 
     public BaseFrame(String titulo){
