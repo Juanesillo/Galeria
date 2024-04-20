@@ -170,11 +170,14 @@ public class RegisterGui extends BaseFrame {
 
                         // crear el ususario 
                         LoginGui loginGui= new LoginGui();
+                        loginGui.setVisible(true);
+
+                        JOptionPane.showMessageDialog(loginGui, "Registro del cliente exitoso");
 
 
                         // no es necesario validar algo mas solo cliente por ahora... es mejor hacerlo en el gui de cliente y hacer una lista de objetos de tipo cliente 
 
-                        
+
 
 
 
