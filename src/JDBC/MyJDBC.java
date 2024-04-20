@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 public class MyJDBC {
     //Configuracion SQL
 
@@ -60,6 +62,70 @@ public class MyJDBC {
 
 
     }
+    // Registrar nuyevo usuario en la base de datos 
 
+    // if true== Registro exitoso 
+
+    // if false== Registro fallido 
+
+    public static boolean register(String Username,String password){
+
+        try{
+            // validar que el usuario ya fue elegido o aun no 
+
+            if(!checkUser(Username)){
+                Connection connection= DriverManager.getConnection(url, user, Password);
+                PreparedStatement preparedStatement= connection.prepareStatement("INSERT INTO users(username,password)"+"VALUES(?,?)");
+
+                preparedStatement.setString(1, Username);
+                preparedStatement.setString(2, password);
+
+                preparedStatement.executeUpdate();
+                return true;
+
+
+
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return false;
+
+
+    }
+    // validar que el usuario exista, 
+    // true => El usuario existe 
+    // false => El usuario no existe 
+    private static boolean checkUser(String username){
+        // intentar bucar y en caso de no encontrar retornar el error
+        try{
+
+            Connection connection= DriverManager.getConnection(url, user, Password);
+
+
+            PreparedStatement preparedStatement= connection.prepareStatement("SELECT * FROM users WHERE username =?");
+
+            preparedStatement.setString(1,username );
+
+            ResultSet resultSet= preparedStatement.executeQuery();
+
+            if(!resultSet.next()){
+                return false;
+            }
+           
+
+    
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return true;
+
+
+    }
 
 }
+
+
+
+

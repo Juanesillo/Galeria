@@ -1,7 +1,11 @@
 package guis;
 import Constantes.Constantes;
+import JDBC.MyJDBC;
+
 import javax.swing.*;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class RegisterGui extends BaseFrame {
     
@@ -36,6 +40,8 @@ public class RegisterGui extends BaseFrame {
 
         // Laber de Username 
 
+
+
         JLabel Username= new JLabel("Username");
         Username.setForeground(Constantes.ColorTexto);
 
@@ -49,6 +55,9 @@ public class RegisterGui extends BaseFrame {
         add(Username);
 
 
+
+
+
         // Crear campo para rellenar USERNAME
         JTextField UsernameField= new JTextField();
         UsernameField.setBackground(Constantes.SPColor);
@@ -60,7 +69,10 @@ public class RegisterGui extends BaseFrame {
 
         // Crear Password Label
 
-        // Label de Password
+
+
+
+        // Label de Password // TITULO
 
         JLabel Password= new JLabel("Password");
 
@@ -75,6 +87,11 @@ public class RegisterGui extends BaseFrame {
         // Ajustar Font 
         Password.setFont(new Font("Dialog",Font.PLAIN,20));
         add(Password);
+
+
+
+
+
 
         // Crear Pasword Field
 
@@ -118,15 +135,99 @@ public class RegisterGui extends BaseFrame {
 
     // Crear el boton de Login 
 
-        JButton boton= new JButton("LOGIN");
+        JButton boton= new JButton("REGISTER");
         boton.setBackground(Constantes.TPColor);
         boton.setForeground(Constantes.ColorTexto);
         boton.setBounds(20,270,getWidth()-60,30);
         boton.setFont(new Font("Dialog",Font.BOLD,20));
+
+
+        boton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               // obtener el usuario 
+               String Username=UsernameField.getText();
+
+
+
+               // obtener el valor de la contraseña 
+
+
+               String Password= String.valueOf(passwordField.getPassword());
+
+               // Obtener la contraseña confirmada 
+               String Password2= String.valueOf(RepasswordField.getPassword());
+
+
+               // validar los inputs propuestos 
+               if(validarInput(Username, Password, Password2)){
+                    // intenro registrar en la dataBase
+                    if(MyJDBC.register(Username, Password2)){
+                        // Registro exitoso 
+                        // Dispose de la gui 
+                        RegisterGui.this.dispose();
+
+                        // crear el ususario 
+                        LoginGui loginGui= new LoginGui();
+
+
+                        // no es necesario validar algo mas solo cliente por ahora... es mejor hacerlo en el gui de cliente y hacer una lista de objetos de tipo cliente 
+
+                        
+
+
+
+                    }
+
+
+               }
+
+
+
+            }
+            
+        });
+
+
         add(boton);
 
 
+
+        // boton para regresar 
+
+        JLabel Registro= new JLabel("<html><a href=\"#\">Volver al Login </a></html>");
+        Registro.setBounds(20,310,getWidth()-60,30);
+        Registro.setForeground(Constantes.ColorTexto);
+        Registro.setBackground(Constantes.ColorTexto);
+        Registro.setFont(new Font("Dialog",Font.BOLD,11));
+        Registro.setHorizontalAlignment(SwingConstants.CENTER);
+        add(Registro);
+
+
   
+    }
+
+
+
+
+    private boolean validarInput(String username, String password, String repassword){
+
+        // Empezar validación 
+
+        if (username.length()== 0 || password.length()==0 || repassword.length()== 0){return false;}
+
+        // el usuario tiene que tener al menos 5 caracteres de largo 
+        if (username.length()< 5){return false;}
+
+
+        // las contraseñas tienen que ser las mismas 
+
+        if (!password.equals(repassword)){return false;}
+
+        // las validaciones se cumplieron
+        return true;
+
     }
 
 }
