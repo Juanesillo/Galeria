@@ -1,5 +1,6 @@
 package guis;
 import Constantes.Constantes;
+import backend.Galeria;
 import backend.Trabajadores.Cajero;
 import backend.gestionPiezaInventario.Inventario;
 
@@ -23,15 +24,8 @@ public class InicioGUI extends BaseFrame {
     public static  Inventario inventario= new Inventario();
     public static Cajero cajero= new Cajero(inventario);
 
-public static Inventario getInvetarioG(){
-    return inventario;
-}
 
-public static Cajero getCajeroG(){
-    return cajero;
-}
-
-
+public static Galeria galeria= new Galeria();
 
 
     @Override
@@ -55,6 +49,9 @@ public static Cajero getCajeroG(){
 
             @Override
             public void actionPerformed(ActionEvent e) {
+
+               
+
                 // crear el inventario desde cero 
                 // crear metodo para persistir el inventario de manera  paralela
 
@@ -94,6 +91,14 @@ public static Cajero getCajeroG(){
         Titulo.setBounds(20,190,getWidth()-60,28);
         Titulo.setFont(new Font("Dialog",Font.BOLD,25));
         Titulo.setHorizontalAlignment(SwingConstants.CENTER);
+
+
+
+        // aca se implementa la craeción de una galeria cargada 
+            // ingresa el nombre y con el nombre se carga el archivo con una serie de setter que van a cambiar dependiendo de la estructura de datos 
+            
+
+
         add(Titulo);
         
 

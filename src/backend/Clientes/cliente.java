@@ -10,7 +10,7 @@ public class Cliente  {
     // atributos de cliente
     private String contacto;
     private String idCliente;
-    private Cajero cajero;
+    
     private double Dinero;
 
   // listas implementadas en cliente
@@ -23,10 +23,9 @@ public class Cliente  {
     
     
 
-    public Cliente(String contacto, String idCliente, Cajero cajero,double Dinero) {
+    public Cliente(String contacto, String idCliente,double Dinero) {
         this.contacto= contacto;
         this.idCliente=idCliente;
-        this.cajero= cajero;
         this.Dinero=Dinero;
 
 
@@ -77,9 +76,9 @@ public class Cliente  {
         // Cajero validar si es posible Compra
         //validar de manera automatica con la calse cajero
         try{
-            boolean disponible= cajero.EstaDisponible(nombre); 
+            boolean disponible= Cajero.EstaDisponible(nombre); 
             if (disponible){
-                Inventario inventario= cajero.getInventario();
+                Inventario inventario= Cajero.getInventario();
                 HashMap<String,ArrayList<Object>> inv=inventario.getListadoDisponible();
                 ArrayList<Object> array= inv.get(nombre);
                 Integer costoPieza= (Integer) array.get(6);
@@ -89,7 +88,7 @@ public class Cliente  {
                 }
                 else{
                     this.Dinero= valores;
-                    cajero.registrar(nombre, costoPieza);
+                    Cajero.registrar(nombre, costoPieza);
                     
                 }
     

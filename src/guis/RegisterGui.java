@@ -1,11 +1,16 @@
 package guis;
 import Constantes.Constantes;
 import JDBC.MyJDBC;
+import backend.Galeria;
+import backend.Clientes.Cliente;
 
 import javax.swing.*;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import java.util.UUID;
+
 
 public class RegisterGui extends BaseFrame  {
     
@@ -203,11 +208,23 @@ public class RegisterGui extends BaseFrame  {
                // Obtener la contraseña confirmada 
                String Password2= String.valueOf(RepasswordField.getPassword());
 
+               String contacto= contactoField.getText();
+
+               double dinero= Double.parseDouble(DineroField.getText());
+
+
 
                // validar los inputs propuestos 
                if(validarInput(Username, Password, Password2)){
                     // intenro registrar en la dataBase
                     if(MyJDBC.register(Username, Password2)){
+                        // crear cliente y enviarlo al mapa de Galeria 
+
+                        Cliente cliente= new Cliente(contacto, String.valueOf(generateUniqueId()), dinero);
+
+                        Galeria.agregarCliente(cliente);
+
+
                         // Registro exitoso 
                         // Dispose de la gui 
                         RegisterGui.this.dispose();
@@ -276,9 +293,12 @@ public class RegisterGui extends BaseFrame  {
 
     }
 
-    private Integer generarID(){
-        return null;
-
+    public static  UUID generateUniqueId() {
+        UUID uuid = UUID.randomUUID();
+        return uuid;
+      
+        
+       
     }
 
 }
