@@ -8,11 +8,11 @@ import backend.gestionPiezaInventario.Pieza;
 public class Operador{
 
 // solo se encarga de la subasta 
-    private Subasta subasta;
+    private Subasta subasta= new Subasta();
     private static HashMap<String,Integer> Registro = new HashMap<String,Integer>();
   
-    public Operador(Subasta subasta){
-        this.subasta=subasta;
+    public Operador(){
+       
 
     }
 

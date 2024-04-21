@@ -13,7 +13,7 @@ public class Inventario {
     //lista piezas disponibles para compra
     private HashMap<String,ArrayList<Object>>listadoDisponible=new HashMap<String,ArrayList<Object>>();
     // Lista piezas disponibles para Subasta 
-    private HashMap<String,ArrayList<Object>>listadoSubasta=new HashMap<String,ArrayList<Object>>();
+    private static HashMap<String,ArrayList<Object>>listadoSubasta=new HashMap<String,ArrayList<Object>>();
 
     // piezas exhibidas
     private HashMap<String,ArrayList<Object>> listadoexhibidas = new HashMap<String,ArrayList<Object>>();
@@ -42,7 +42,7 @@ public class Inventario {
     }
  
  
-    public HashMap<String, ArrayList<Object>> getListadoSubasta() {
+    public static HashMap<String, ArrayList<Object>> getListadoSubasta() {
         return listadoSubasta;
     }
 
