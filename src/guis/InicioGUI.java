@@ -21,11 +21,10 @@ public class InicioGUI extends BaseFrame {
     // Crear Galeria Total para almacenar la información
 
     // atributos generales 
-    public static  Inventario inventario= new Inventario();
-    public static Cajero cajero= new Cajero(inventario);
-
-
-public static Galeria galeria= new Galeria();
+    
+    public static Galeria galeria= new Galeria();
+   
+    
 
 
     @Override
