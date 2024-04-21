@@ -14,11 +14,12 @@ public class AppLauncher {
             @Override
             public void run(){
              
-            //new RegisterGui().setVisible(true);
+           
               //new ClienteGUI().setVisible(true);
               //new LoginGui().setVisible(true);
 
-            new InicioGUI().setVisible(true);
+            //new InicioGUI().setVisible(true);
+            new RegisterGui().setVisible(true);
             
         }
     });
