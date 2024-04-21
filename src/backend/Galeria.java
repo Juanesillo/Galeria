@@ -16,7 +16,7 @@ public class Galeria {
     // atributos 
 
     private static Inventario inventario = new Inventario();
-    private Cajero cajero= new Cajero(inventario);
+    private static Cajero cajero= new Cajero(inventario);
     private static Operador operador = new Operador(inventario);
     private static ArrayList<Cliente> listaClientes= new ArrayList<Cliente>();
 
@@ -39,7 +39,8 @@ public class Galeria {
     private static HashMap<Cliente,Integer> Registro = operador.getRegistro();// puede emplear subasta 
     // Cajero
 
-
+    private static HashMap<String, Integer> RegistroPagos = cajero.getResgistroPagos();
+    
     // cajero estructura de datos
     
 

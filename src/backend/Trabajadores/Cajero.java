@@ -22,12 +22,17 @@ public class Cajero {
     
 
     public Cajero(Inventario inventario) {
-        this.inventario=inventario;
+        Cajero.inventario=inventario;
         
     }
 
     public static void registrar(String nombre, Integer valor){
         RegistroPagos.put(nombre,valor);
+    }
+
+    public HashMap<String, Integer> getResgistroPagos(){
+
+        return RegistroPagos;
     }
 
     
