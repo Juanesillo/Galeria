@@ -2,7 +2,7 @@ package backend.Clientes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import backend.Trabajadores.Cajero;
 import backend.Trabajadores.Cajero;
 import backend.gestionPiezaInventario.Inventario;
 
@@ -54,8 +54,15 @@ public class Cliente  {
         return validar;
     }
 
+    public double getDinero(){
+        return Dinero;
+    }
 
+    
 
+    public void setDinero(double dinero) {
+        Dinero = dinero;
+    }
 
 
     // actualizar el mapa de historial de piezas que ha dado el cliente a la Galeria 
@@ -71,39 +78,12 @@ public class Cliente  {
 
    
     
-    public void Comprar(Cajero Cajero, String nombre, String metododepago)throws Exception{
+    // funciones solicitud compra y venta
+         // se hace solicitud de compra al cajero 
+   public void solicitudCompra(Cliente cliente, String nombre ){
+    Cajero.llenarSolicitud(cliente,nombre);
 
-        // Cajero validar si es posible Compra
-        //validar de manera automatica con la calse cajero
-        try{
-            boolean disponible= Cajero.EstaDisponible(nombre); 
-            if (disponible){
-                Inventario inventario= Cajero.getInventario();
-                HashMap<String,ArrayList<Object>> inv=inventario.getListadoDisponible();
-                ArrayList<Object> array= inv.get(nombre);
-                Integer costoPieza= (Integer) array.get(6);
-                Integer valores= (int) (this.Dinero - costoPieza);
-                if(valores <0){
-                    throw new Exception("Saldo insuficiente");
-                }
-                else{
-                    this.Dinero= valores;
-                    Cajero.registrar(nombre, costoPieza);
-                    
-                }
-    
-                //validar que el pago es posible 
-                // ajustar cantidad de dinero establecida
-    
-            }
-
-        }catch (Exception e){
-            System.out.println("No cuentas con saldo suficiente en tu cuenta ");
-        }        
-        // validar si la obra de arte esta disponible para ser comprada 
-    }
-    
-   
+   }
     
 }
     

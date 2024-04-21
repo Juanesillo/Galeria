@@ -11,6 +11,8 @@ public class Cajero extends Ventas{
     private Inventario inventario;
     private HashMap<String, Integer> RegistroPagos = new HashMap<>();
 
+    private static HashMap<Cliente, String>solicitud = new HashMap<>();
+
 
 
 
@@ -49,10 +51,47 @@ public class Cajero extends Ventas{
         return retorno;
     }
 
-    @Override
-    public void venderPieza() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'venderPieza'");
+
+
+
+
+    public static void llenarSolicitud(Cliente cliente, String nombre){
+        solicitud.put(cliente, nombre);
+
+
+    }
+   
+
+    public void venderPieza( String nombre, String metododepago, Cliente cliente)throws Exception{
+
+        // Cajero validar si es posible Compra
+        //validar de manera automatica con la calse cajero
+        try{
+            boolean disponible= EstaDisponible(nombre); 
+            if (disponible){
+                Inventario inventario= getInventario();
+                HashMap<String,ArrayList<Object>> inv=inventario.getListadoDisponible();
+                ArrayList<Object> array= inv.get(nombre);
+                Integer costoPieza= (Integer) array.get(6);
+                Integer valores= (int) (cliente.getDinero() - costoPieza);
+                if(valores <0){
+                    throw new Exception("Saldo insuficiente");
+                }
+                else{
+                    cliente.setDinero(valores);
+                    registrar(nombre, costoPieza);
+                    
+                }
+    
+                //validar que el pago es posible 
+                // ajustar cantidad de dinero establecida
+    
+            }
+
+        }catch (Exception e){
+            System.out.println("No cuentas con saldo suficiente en tu cuenta ");
+        }        
+        // validar si la obra de arte esta disponible para ser comprada 
     }
 
 

@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import Constantes.Constantes;
 import JDBC.MyJDBC;
@@ -140,12 +139,20 @@ public class LoginGui extends BaseFrame {
 
             else if(user!= null && user.getUsername().equals("Operador")){}
 
-            else if(user!= null && user.getUsername().equals("Cajero")){}
+            else if(user!= null && user.getUsername().equals("Cajero")){
+                // desabilitar Gui
+
+                LoginGui.this.dispose();
+
+                
+
+
+            }
 
             
 
                 // Conectar con la GUI específica
-            else if (user == null){JOptionPane.showMessageDialog(LoginGui.this, "Error");}
+            else if (user == null){JOptionPane.showMessageDialog(LoginGui.this, "El usuario no existe");}
 
             else{
                 LoginGui.this.dispose();

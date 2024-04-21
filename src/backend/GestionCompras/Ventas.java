@@ -58,7 +58,6 @@ public abstract class Ventas{
     // Consideración si el valor booleano de la pieza es false => Esta disponible solo para subasta
     public abstract boolean EstaDisponible(String nombre);
 
-    public abstract void venderPieza();
     
 
 
