@@ -2,8 +2,7 @@ package backend.gestionPiezaInventario;
 
 import java.util.*;
 
-import backend.Trabajadores.Administrador;
-import backend.Trabajadores.Operador;
+
 
 
 
