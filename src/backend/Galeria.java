@@ -3,28 +3,59 @@ package backend;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import backend.Clientes.Cliente;
 import backend.Trabajadores.Cajero;
+import backend.Trabajadores.Operador;
 import backend.gestionPiezaInventario.Inventario;
 
-
+// esta clase va hacer un llamado de los metodos de otras calses 
 public class Galeria {
 
     // atributos 
 
-    private Inventario inventario = new Inventario();
+    private static Inventario inventario = new Inventario();
     private Cajero cajero= new Cajero(inventario);
+    private static Operador operador = new Operador(inventario);
     private static ArrayList<Cliente> listaClientes= new ArrayList<Cliente>();
 
     // operador y subasta se deben crear una vez sea creado el cliente // validar operador y Subasta
+    // listas empleadas 
 
+
+    // Inventario 
+    private HashMap<String,ArrayList<Object>>listadoDisponible= inventario.getListadoDisponible();
+    // Lista piezas disponibles para Subasta 
+    private static HashMap<String,ArrayList<Object>>listadoSubasta= inventario.getListadoSubasta();
+
+    // piezas exhibidas
+    private HashMap<String,ArrayList<Object>> listadoexhibidas = inventario.getListadoexhibidas();
+  
+    // Operador
     
+    
+
+    private static HashMap<Cliente,Integer> Registro = operador.getRegistro();// puede emplear subasta 
+    // Cajero
+
+
+    // cajero estructura de datos
+    
+
+
+    // Operador necesita Inventario para hacer la consulta de listado de SubastaDisponible 
+
     
 
     public Galeria(){
         
     }
+
+
+    // getters
+
+    // setters
 
     public static void agregarCliente(Cliente cliente){
         listaClientes.add(cliente);

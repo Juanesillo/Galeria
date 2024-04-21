@@ -12,10 +12,12 @@ import backend.gestionPiezaInventario.Pieza;
 public class Operador{
 
 // solo se encarga de la subasta 
-    private static HashMap<String, ArrayList<Object>>  subasta = Inventario.getListadoSubasta();
+    private static Inventario inventario;
+    private static HashMap<String, ArrayList<Object>>  subasta = inventario.getListadoSubasta();
     private static HashMap<Cliente,Integer> Registro = new HashMap<Cliente,Integer>();
   
-    public Operador(){
+    public Operador(Inventario inventario){
+        this.inventario= inventario;
        
 
     }
