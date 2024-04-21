@@ -4,12 +4,13 @@ import java.time.LocalDate;
 import java.util.*;
 
 import backend.GestionCompras.Subasta;
+import backend.gestionPiezaInventario.Inventario;
 import backend.gestionPiezaInventario.Pieza;
 
 public class Operador{
 
 // solo se encarga de la subasta 
- 
+    private HashMap<String, ArrayList<Object>>  subasta = Inventario.getListadoSubasta();
     private static HashMap<String,Integer> Registro = new HashMap<String,Integer>();
   
     public Operador(){
