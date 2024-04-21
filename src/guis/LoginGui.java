@@ -137,13 +137,30 @@ public class LoginGui extends BaseFrame {
                 
            
             }
+
+            else if(user!= null && user.getUsername().equals("Operador")){}
+
+            else if(user!= null && user.getUsername().equals("Cajero")){}
+
             
 
                 // Conectar con la GUI específica
+            else if (user == null){JOptionPane.showMessageDialog(LoginGui.this, "Error");}
 
-            else{JOptionPane.showMessageDialog(LoginGui.this, "Error");}
+            else{
+                LoginGui.this.dispose();
+
+                ClienteGUI clienteGUI= new ClienteGUI();
+                clienteGUI.setVisible(true);
+                JOptionPane.showMessageDialog(clienteGUI, "LogIn Exitoso");
+
+
 
             }
+        
+        
+        
+        }
             
             // si ususario es null significa que no se encontro un valor almacenado 
 

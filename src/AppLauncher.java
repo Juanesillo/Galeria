@@ -17,9 +17,8 @@ public class AppLauncher {
            
               //new ClienteGUI().setVisible(true);
               //new LoginGui().setVisible(true);
-
-            //new InicioGUI().setVisible(true);
-            new RegisterGui().setVisible(true);
+            //new RegisterGui().setVisible(true);
+            new InicioGUI().setVisible(true);
             
         }
     });
