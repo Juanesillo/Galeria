@@ -3,14 +3,13 @@ package backend.Trabajadores;
 import java.time.LocalDate;
 import java.util.*;
 
-import backend.GestionCompras.Subasta;
 import backend.gestionPiezaInventario.Inventario;
 import backend.gestionPiezaInventario.Pieza;
 
 public class Operador{
 
 // solo se encarga de la subasta 
-    private HashMap<String, ArrayList<Object>>  subasta = Inventario.getListadoSubasta();
+    private static HashMap<String, ArrayList<Object>>  subasta = Inventario.getListadoSubasta();
     private static HashMap<String,Integer> Registro = new HashMap<String,Integer>();
   
     public Operador(){
@@ -18,6 +17,10 @@ public class Operador{
 
     }
 
+    public static HashMap<String, ArrayList<Object>> getSubasta(){
+        return subasta;
+
+    }
     public static HashMap<String, Integer> getRegistro() {
         return Registro;
     }
@@ -32,9 +35,22 @@ public class Operador{
 
     }
 
+    
+
     public static void IniciarSubasta(){
 
         try{
+            // obtener listado de piezas para subastar 
+
+        subasta=getSubasta();
+
+
+        ArrayList<String> nombre = (ArrayList<String>) subasta.keySet();
+        
+
+        String valorSubasta = nombre.get(0);
+        ArrayList<Object> atributos= subasta.get(valorSubasta);
+
         // las subastas solo se realizan los días pares por lo tanto debemos validar si es un día par 
         // validar dia del mes
         // obtener fecha actual
@@ -45,7 +61,13 @@ public class Operador{
         int dia =fechaActual.getDayOfMonth();
     
         if ( dia %2 ==0){
-            Subasta subasta= new Subasta();
+                // si es dia par se puede realizar la subasta 
+
+                // validar cual es el mayor valor en Hashmap
+
+
+            
+            
         }
         else{throw new Exception("Dia no valido para la subasta");}
 
