@@ -4,6 +4,9 @@ package guis;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import Constantes.Constantes;
 import JDBC.MyJDBC;
@@ -162,6 +165,21 @@ public class LoginGui extends BaseFrame {
     Registro.setBackground(Constantes.ColorTexto);
     Registro.setFont(new Font("Dialog",Font.BOLD,11));
     Registro.setHorizontalAlignment(SwingConstants.CENTER);
+
+
+    Registro.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e){
+            LoginGui.this.dispose();
+
+            // lanzar la gui de registro
+
+            new RegisterGui().setVisible(true);
+
+        }
+
+        
+    });
     add(Registro);
 
     }
