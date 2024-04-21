@@ -3,6 +3,9 @@ package backend.Trabajadores;
 import java.time.LocalDate;
 import java.util.*;
 
+import backend.Clientes.Cliente;
+import backend.Trabajadores.Cajero;
+
 import backend.gestionPiezaInventario.Inventario;
 import backend.gestionPiezaInventario.Pieza;
 
@@ -10,7 +13,7 @@ public class Operador{
 
 // solo se encarga de la subasta 
     private static HashMap<String, ArrayList<Object>>  subasta = Inventario.getListadoSubasta();
-    private static HashMap<String,Integer> Registro = new HashMap<String,Integer>();
+    private static HashMap<Cliente,Integer> Registro = new HashMap<Cliente,Integer>();
   
     public Operador(){
        
@@ -21,11 +24,11 @@ public class Operador{
         return subasta;
 
     }
-    public static HashMap<String, Integer> getRegistro() {
+    public static HashMap<Cliente, Integer> getRegistro() {
         return Registro;
     }
 
-    public static void RegistrarPuja(String nombre, Integer valor){
+    public static void RegistrarPuja(Cliente nombre, Integer valor){
         // Puja nombre del cliente que puja - Valor con el cual Puja 
         Registro.put(nombre, valor);
     }
@@ -41,15 +44,17 @@ public class Operador{
 
         try{
             // obtener listado de piezas para subastar 
-
+        Integer maxValor=0;
         subasta=getSubasta();
+        Cliente claveMaxValor = null;
 
+        HashMap<Cliente, Integer>registro= getRegistro();
 
-        ArrayList<String> nombre = (ArrayList<String>) subasta.keySet();
+        ArrayList<String> ListaNombres = (ArrayList<String>) subasta.keySet();
         
 
-        String valorSubasta = nombre.get(0);
-        ArrayList<Object> atributos= subasta.get(valorSubasta);
+        String nombre = ListaNombres.get(0);
+        ArrayList<Object> atributos= subasta.get(nombre);
 
         // las subastas solo se realizan los días pares por lo tanto debemos validar si es un día par 
         // validar dia del mes
@@ -65,7 +70,19 @@ public class Operador{
 
                 // validar cual es el mayor valor en Hashmap
 
+                for (Map.Entry<Cliente,Integer> entry : registro.entrySet() ) {
 
+                    Cliente clave = entry.getKey();
+               
+                    Integer valor= entry.getValue();
+
+                    if(valor>maxValor){
+                    maxValor=valor;
+                    claveMaxValor=clave;}  
+
+                    }
+            Cajero.venderPieza(nombre, maxValor,claveMaxValor);
+                
             
             
         }

@@ -7,11 +7,13 @@ import backend.Clientes.Cliente;
 import backend.GestionCompras.Ventas;
 import backend.gestionPiezaInventario.Inventario;
 
-public class Cajero extends Ventas{
-    private Inventario inventario;
-    private HashMap<String, Integer> RegistroPagos = new HashMap<>();
+public class Cajero {
+    private static Inventario inventario;
+    private static HashMap<String, Integer> RegistroPagos = new HashMap<>();
 
     private static HashMap<Cliente, String>solicitud = new HashMap<>();
+
+
 
 
 
@@ -20,18 +22,18 @@ public class Cajero extends Ventas{
     
 
     public Cajero(Inventario inventario) {
-        super(inventario);
-        //TODO Auto-generated constructor stub
+        this.inventario=inventario;
+        
     }
 
-    public void registrar(String nombre, Integer valor){
+    public static void registrar(String nombre, Integer valor){
         RegistroPagos.put(nombre,valor);
     }
 
     
 
-    @Override
-    public boolean EstaDisponible(String nombre) {
+    
+    public static boolean EstaDisponible(String nombre) {
         boolean validar= false;
         boolean retorno= false;
 
@@ -62,12 +64,33 @@ public class Cajero extends Ventas{
     }
    
 
-    public void venderPieza( String nombre, String metododepago, Cliente cliente)throws Exception{
+    public static void venderPieza( String nombre, Integer valor, Cliente cliente)throws Exception{
 
         // Cajero validar si es posible Compra
         //validar de manera automatica con la calse cajero
         try{
+
+            
             boolean disponible= EstaDisponible(nombre); 
+
+            if (!disponible) {
+                Integer costoPieza= valor;
+                Integer valores= (int) (cliente.getDinero() - costoPieza);
+                if(valores <0){
+                    throw new Exception("Saldo insuficiente");
+                }
+                else{
+                    cliente.setDinero(valores);
+                    registrar(nombre, costoPieza);
+                    
+                }
+
+                
+            }
+
+
+
+
             if (disponible){
                 Inventario inventario= getInventario();
                 HashMap<String,ArrayList<Object>> inv=inventario.getListadoDisponible();
@@ -92,6 +115,10 @@ public class Cajero extends Ventas{
             System.out.println("No cuentas con saldo suficiente en tu cuenta ");
         }        
         // validar si la obra de arte esta disponible para ser comprada 
+    }
+
+    private static Inventario getInventario() {
+        return inventario;
     }
 
 

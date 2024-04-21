@@ -5,7 +5,7 @@ import backend.gestionPiezaInventario.Inventario;
 public abstract class Ventas{
 
     protected String idVenta;
-    protected Inventario inventario;
+    protected static Inventario inventario;
 
 
     public Ventas(Inventario inventario){
@@ -23,7 +23,7 @@ public abstract class Ventas{
     }
 
 
-    public Inventario getInventario() {
+    public static Inventario getInventario() {
         return inventario;
     }
     // setters

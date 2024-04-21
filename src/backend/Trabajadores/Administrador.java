@@ -7,7 +7,7 @@ import backend.Clientes.Cliente;
 public class Administrador {
     private String User;
 
-    private HashMap<String,Integer >RegistroOperador;
+    private HashMap<Cliente, Integer> RegistroOperador;
     
 
     public Administrador(String user){

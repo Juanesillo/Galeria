@@ -1,11 +1,10 @@
 package backend;
 
-import backend.Trabajadores.Operador;
+
 
 import java.util.ArrayList;
 
 import backend.Clientes.Cliente;
-import backend.GestionCompras.Subasta;
 import backend.Trabajadores.Cajero;
 import backend.gestionPiezaInventario.Inventario;
 
