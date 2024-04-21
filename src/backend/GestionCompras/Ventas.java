@@ -1,6 +1,5 @@
 package backend.GestionCompras;
 
-import backend.Clientes.Cliente;
 import backend.gestionPiezaInventario.Inventario;
 
 public abstract class Ventas{
@@ -11,7 +10,7 @@ public abstract class Ventas{
 
     public Ventas(Inventario inventario){
 
-        this.idVenta=idVenta;
+        
         this.inventario=inventario;
     }
 
