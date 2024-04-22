@@ -99,10 +99,14 @@ public class Galeria {
             System.err.println("Error al realizar la compra: " + e.getMessage());
             throw e; 
 
-        }
-        
+        }       
 
 
+    }
+
+    public static void AgregarhistorialCliente(Cliente cliente, String nombre, ArrayList<Object> atributos){
+
+        cliente.actualizarHistorial(nombre, atributos);
     }
 
 }

@@ -40,6 +40,40 @@ public class AdministradorGUI extends BaseFrame {
       // agregar a la GUI 
       add(Titulo);
 
+      // salir de nuevo a la GUI de Login
+
+      JButton salir= new JButton("Salir");
+      salir.setBackground(Constantes.TPColor);
+      salir.setForeground(Constantes.ColorTexto);
+      salir.setBounds(20,70,getWidth()-60,30);
+      salir.setFont(new Font("Dialog",Font.BOLD,20));
+      salir.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          // dispose 
+
+          AdministradorGUI.this.dispose();
+
+          // crear Login 
+
+          LoginGui loginGui = new LoginGui();
+
+          loginGui.setVisible(true);
+
+          
+        }
+        
+      });
+      add(salir);
+
+
+
+
+
+
+
+
 
       // Boton AgregarPieza
 

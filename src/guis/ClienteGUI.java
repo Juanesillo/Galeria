@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -123,13 +124,23 @@ public class ClienteGUI extends BaseFrame {
 
                 Cliente Usuario = obtenerCliente(cliente);
                 String nombrep= nombrePieza.getText();
-
+                boolean validar= false;
 
                 try {
                     Galeria.realizarCompra(nombrep, Usuario);
+                    validar= true;
+
+
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
+                if (validar){
+                    HashMap<String,ArrayList<Object> >dispo= Galeria.getListadoDisponible();
+                    Galeria.AgregarhistorialCliente(Usuario, nombrep,dispo.get(nombrep));                  
+                }else{
+                    JOptionPane.showConfirmDialog(ClienteGUI.this, "Error al realizar compra");
+                }
+                
 
 
 
@@ -172,10 +183,37 @@ public class ClienteGUI extends BaseFrame {
         JButton HitorialCompras= new JButton("Consultar Historial Compras");
         HitorialCompras.setBackground(Constantes.SPColor);
         HitorialCompras.setForeground(Constantes.ColorTexto);
-        HitorialCompras.setBounds(0, 480, super.getWidth(),50 );
+        HitorialCompras.setBounds(0, 420, super.getWidth(),50 );
         HitorialCompras.setFont(new Font("Dialog",Font.BOLD,20));
 
         add(HitorialCompras);
+
+
+
+        JButton salir= new JButton("Salir");
+      salir.setBackground(Constantes.TPColor);
+      salir.setForeground(Constantes.ColorTexto);
+      salir.setBounds(20,480,getWidth()-60,30);
+      salir.setFont(new Font("Dialog",Font.BOLD,20));
+      salir.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          // dispose 
+
+          ClienteGUI.this.dispose();
+
+          // crear Login 
+
+          LoginGui loginGui = new LoginGui();
+
+          loginGui.setVisible(true);
+
+          
+        }
+        
+      });
+      add(salir);
         
     }
 
