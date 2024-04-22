@@ -36,6 +36,14 @@ public class Cliente  {
         return contacto;
     }
 
+    public HashMap<String, ArrayList<Object>> getHistorial() {
+        return Historial;
+    }
+
+    public HashMap<String, ArrayList<Object>> getCompras() {
+        return Compras;
+    }
+
     public String getIdCliente() {
         return idCliente;
     }

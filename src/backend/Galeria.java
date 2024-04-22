@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import backend.Clientes.Cliente;
 import backend.Trabajadores.Cajero;
@@ -122,33 +123,24 @@ public class Galeria {
             // Guardar lista de clientes
             writer.write("=== Lista de Clientes ===\n");
             for (Cliente cliente : listaClientes) {
-                writer.write(cliente.toString() + "\n");
-            }
+                writer.write(cliente.getContacto() + ";" + cliente.getIdCliente() +";"+cliente.getDinero()+";");
+                writer.write("prueba");
+                HashMap<String, ArrayList<Object>> mapa= cliente.getHistorial();
+            for (Entry<String, ArrayList<Object>> entry : mapa.entrySet()) {
+                String clave = entry.getKey();
+                ArrayList<Object> lista = entry.getValue();
+                writer.write(clave + ": ");
+                for (Object obj : lista) {
+                    writer.write(obj.toString() + " ");
+                }
+                writer.write("\n");
 
-            // Guardar listado disponible
-            writer.write("\n=== Listado Disponible ===\n");
-            for (String key : listadoDisponible.keySet()) {
-                writer.write(key + ": " + listadoDisponible.get(key).toString() + "\n");
+            
             }
+            
 
-            // Guardar listado de subasta
-            writer.write("\n=== Listado de Subasta ===\n");
-            for (String key : listadoSubasta.keySet()) {
-                writer.write(key + ": " + listadoSubasta.get(key).toString() + "\n");
-            }
-
-            // Guardar registro de operador
-            writer.write("\n=== Registro de Operador ===\n");
-            for (Cliente cliente : Registro.keySet()) {
-                writer.write(cliente.toString() + " - Puntos: " + Registro.get(cliente) + "\n");
-            }
-
-            // Guardar registro de pagos
-            writer.write("\n=== Registro de Pagos ===\n");
-            for (String key : RegistroPagos.keySet()) {
-                writer.write(key + ": " + RegistroPagos.get(key) + "\n");
-            }
-        } catch (IOException e) {
+        }
+    } catch (IOException e) {
             e.printStackTrace();
         }
     }
