@@ -2,6 +2,9 @@ package backend;
 
 
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -107,6 +110,47 @@ public class Galeria {
     public static void AgregarhistorialCliente(Cliente cliente, String nombre, ArrayList<Object> atributos){
 
         cliente.actualizarHistorial(nombre, atributos);
+    }
+
+
+
+
+
+
+    public static void guardarDatosEnArchivo(String nombreArchivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
+            // Guardar lista de clientes
+            writer.write("=== Lista de Clientes ===\n");
+            for (Cliente cliente : listaClientes) {
+                writer.write(cliente.toString() + "\n");
+            }
+
+            // Guardar listado disponible
+            writer.write("\n=== Listado Disponible ===\n");
+            for (String key : listadoDisponible.keySet()) {
+                writer.write(key + ": " + listadoDisponible.get(key).toString() + "\n");
+            }
+
+            // Guardar listado de subasta
+            writer.write("\n=== Listado de Subasta ===\n");
+            for (String key : listadoSubasta.keySet()) {
+                writer.write(key + ": " + listadoSubasta.get(key).toString() + "\n");
+            }
+
+            // Guardar registro de operador
+            writer.write("\n=== Registro de Operador ===\n");
+            for (Cliente cliente : Registro.keySet()) {
+                writer.write(cliente.toString() + " - Puntos: " + Registro.get(cliente) + "\n");
+            }
+
+            // Guardar registro de pagos
+            writer.write("\n=== Registro de Pagos ===\n");
+            for (String key : RegistroPagos.keySet()) {
+                writer.write(key + ": " + RegistroPagos.get(key) + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
