@@ -13,11 +13,12 @@ public class Operador{
 
 // solo se encarga de la subasta 
     private static Inventario inventario;
-    private static HashMap<String, ArrayList<Object>>  subasta = inventario.getListadoSubasta();
+    private static HashMap<String, ArrayList<Object>>  subasta;
     private static HashMap<Cliente,Integer> Registro = new HashMap<Cliente,Integer>();
   
     public Operador(Inventario inventario){
-        this.inventario= inventario;
+        Operador.inventario = inventario;
+        subasta = inventario.getListadoSubasta();
        
 
     }

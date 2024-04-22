@@ -1,10 +1,13 @@
 package guis;
 import Constantes.Constantes;
+import backend.Galeria;
+import backend.Clientes.Cliente;
 import backend.Trabajadores.Administrador;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -83,7 +86,32 @@ public class AdministradorGUI extends BaseFrame {
             // Conectar con liente para validar usuario 
 
 
-            System.out.println("hola Administrador");
+            // recorrer la lista de clietnes 
+              // toda la lista de cliente => posibles cambios
+
+              ArrayList<Cliente> listaclientes= Galeria.getlistaClientes();
+
+              if (listaclientes.size() ==0){
+                JOptionPane.showMessageDialog(AdministradorGUI.this, "No hay clientes por validar");
+                
+              }else{
+                for (Cliente cliente :listaclientes){
+                
+                  cliente.setValidar(true);
+                }
+                JOptionPane.showMessageDialog(AdministradorGUI.this, "Registro del cliente exitoso");
+
+              }
+             
+
+              
+
+
+
+              
+
+
+            
             
         }
         

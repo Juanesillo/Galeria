@@ -74,4 +74,9 @@ public class Galeria {
     }
     
 
+    public static  ArrayList<Cliente> getlistaClientes(){
+
+        return listaClientes;
+    }
+
 }

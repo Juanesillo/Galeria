@@ -1,8 +1,7 @@
 package guis;
 import Constantes.Constantes;
 import backend.Galeria;
-import backend.Trabajadores.Cajero;
-import backend.gestionPiezaInventario.Inventario;
+
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
