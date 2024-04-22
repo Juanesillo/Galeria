@@ -11,6 +11,11 @@ import java.awt.event.ActionListener;
 
 import java.util.UUID;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 
 public class RegisterGui extends BaseFrame  {
     
@@ -265,6 +270,24 @@ public class RegisterGui extends BaseFrame  {
         Registro.setBackground(Constantes.ColorTexto);
         Registro.setFont(new Font("Dialog",Font.BOLD,11));
         Registro.setHorizontalAlignment(SwingConstants.CENTER);
+
+
+        Registro.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e){
+                RegisterGui.this.dispose();
+    
+                // lanzar la gui de registro
+    
+                new RegisterGui().setVisible(true);
+    
+            }
+    
+            
+        });
+
+
+
         add(Registro);
 
 
