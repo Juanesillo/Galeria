@@ -279,7 +279,7 @@ public class RegisterGui extends BaseFrame  {
     
                 // lanzar la gui de registro
     
-                new RegisterGui().setVisible(true);
+                new LoginGui().setVisible(true);
     
             }
     
