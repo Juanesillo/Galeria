@@ -89,4 +89,20 @@ public class Galeria {
         return listadoDisponible;
     }
 
+
+    public static void realizarCompra(String nombre, Cliente cliente) throws Exception{
+        try{
+
+            Cajero.venderPieza(nombre, cliente);
+        }catch(Exception e){
+
+            System.err.println("Error al realizar la compra: " + e.getMessage());
+            throw e; 
+
+        }
+        
+
+
+    }
+
 }

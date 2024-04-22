@@ -69,12 +69,74 @@ public class Cajero {
     }
    
 
-    public static void venderPieza( String nombre, Integer valor, Cliente cliente)throws Exception{
+    public static void venderPieza( String nombre, Cliente cliente)throws Exception{
 
         // Cajero validar si es posible Compra
         //validar de manera automatica con la calse cajero
         try{
 
+            // obtener el valor 
+            HashMap<String,ArrayList<Object>> listadoD= inventario.getListadoDisponible();
+            
+            ArrayList<Object> atributos= listadoD.get(nombre);
+
+            Integer valor= (Integer) atributos.get(6);
+            
+            boolean disponible= EstaDisponible(nombre); 
+
+            if (!disponible) {
+                Integer costoPieza= valor;
+                Integer valores= (int) (cliente.getDinero() - costoPieza);
+                if(valores <0){
+                    throw new Exception("Saldo insuficiente");
+                }
+                else{
+                    cliente.setDinero(valores);
+                    registrar(nombre, costoPieza);
+                    
+                }
+
+                
+            }
+
+
+
+
+            if (disponible){
+                Inventario inventario= getInventario();
+                HashMap<String,ArrayList<Object>> inv=inventario.getListadoDisponible();
+                ArrayList<Object> array= inv.get(nombre);
+                Integer costoPieza= (Integer) array.get(6);
+                Integer valores= (int) (cliente.getDinero() - costoPieza);
+                if(valores <0){
+                    throw new Exception("Saldo insuficiente");
+                }
+                else{
+                    cliente.setDinero(valores);
+                    registrar(nombre, costoPieza);
+                    
+                }
+    
+                //validar que el pago es posible 
+                // ajustar cantidad de dinero establecida
+    
+            }
+
+        }catch (Exception e){
+            System.out.println("No cuentas con saldo suficiente en tu cuenta ");
+        }        
+        // validar si la obra de arte esta disponible para ser comprada 
+    }
+
+
+
+    public static void venderPiezaOperador( String nombre,Integer valor,  Cliente cliente)throws Exception{
+
+        // Cajero validar si es posible Compra
+        //validar de manera automatica con la calse cajero
+        try{
+
+           
             
             boolean disponible= EstaDisponible(nombre); 
 

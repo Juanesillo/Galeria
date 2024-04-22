@@ -2,12 +2,18 @@ package guis;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.Map.Entry;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
+import java.awt.event.*;
 import Constantes.Constantes;
+import backend.Galeria;
+import backend.Clientes.Cliente;
 
 public class ClienteGUI extends BaseFrame {
     public ClienteGUI(){
@@ -15,6 +21,15 @@ public class ClienteGUI extends BaseFrame {
     }
 
     public void addguicomponent(){
+
+        imprimirDisponibles();
+
+
+
+
+
+
+
         setSize(500,600);
 
         JLabel Titulo= new JLabel("Acciones");
@@ -25,11 +40,75 @@ public class ClienteGUI extends BaseFrame {
         add(Titulo);
 
 
+        JTextField nombre= new JTextField("");
+        nombre.setBackground(Constantes.SPColor);
+        nombre.setForeground(Constantes.ColorTexto);
+        nombre.setBounds(20,60,getWidth()-60,24);
+        nombre.setFont(new Font("Dialog",Font.PLAIN,25));
+        nombre.setHorizontalAlignment(SwingConstants.CENTER);
+
+        //desaparecer texto 
+
+        nombre.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (nombre.getText().equals("Ingrese su contacto")) {
+                    nombre.setText(""); // Borrar el texto al obtener foco
+                }
+            }
+            // arreglar fallos de este efecto 
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (nombre.getText().equals("")) {
+                    nombre.setText("Ingrese su contacto"); // Restaurar el texto si está vacío al perder foco
+                }
+            }
+        });
+
+        add(nombre);
+
+
+
         JButton comprar= new JButton("COMPRAR");
         comprar.setForeground(Constantes.ColorTexto);
         comprar.setBackground(Constantes.SPColor);
         comprar.setBounds(0,120,super.getWidth(),50);
         comprar.setFont(new Font("Dialog",Font.BOLD,20));
+
+
+
+
+
+        // nombre de la pieza a comprar por defecto se va a imprimir el mapa de de disponibles 
+
+        JTextField nombrePieza= new JTextField("");
+        nombrePieza.setBackground(Constantes.SPColor);
+        nombrePieza.setForeground(Constantes.ColorTexto);
+        nombrePieza.setBounds(20,195,getWidth()-60,24);
+        nombrePieza.setFont(new Font("Dialog",Font.PLAIN,25));
+        nombrePieza.setHorizontalAlignment(SwingConstants.CENTER);
+
+        //desaparecer texto 
+
+        nombrePieza.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (nombrePieza.getText().equals("NombrePieza")) {
+                    nombrePieza.setText(""); // Borrar el texto al obtener foco
+                }
+            }
+            // arreglar fallos de este efecto 
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (nombrePieza.getText().equals("")) {
+                    nombrePieza.setText("NombrePieza"); // Restaurar el texto si está vacío al perder foco
+                }
+            }
+        });
+
+        add(nombrePieza);
+
+
 
 
         // acciones implementadas por consola ya que no se como mostrarlas por gui 
@@ -38,7 +117,22 @@ public class ClienteGUI extends BaseFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                // como saber el cliente ???
+
+                String cliente= nombre.getText();
+
+                Cliente Usuario = obtenerCliente(cliente);
+                String nombrep= nombrePieza.getText();
+
+
+                try {
+                    Galeria.realizarCompra(nombrep, Usuario);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+
+
+
                 // conocer disponibles 
 
                 // conectar con cajero
@@ -83,6 +177,46 @@ public class ClienteGUI extends BaseFrame {
 
         add(HitorialCompras);
         
+    }
+
+
+
+    // obtener el cliente con el cual se va a realizar la compra 
+    public Cliente obtenerCliente(String contacto){
+        ArrayList<Cliente> lcliente=Galeria.getlistaClientes();
+
+        Cliente retorno= null;
+
+        for(Cliente cliente: lcliente){
+            if(cliente.getContacto().equals(contacto)){
+
+                retorno= cliente;
+            }
+
+
+
+        
+
+        }
+        return retorno;
+
+    }
+
+
+
+    public void imprimirDisponibles(){
+        System.out.println("Imprimiento Catalogo...");
+        HashMap<String,ArrayList<Object> >dispo= Galeria.getListadoDisponible();
+
+        for (Entry<String, ArrayList<Object>> entry : dispo.entrySet()) {
+            String key = entry.getKey();
+            ArrayList<Object> value = entry.getValue();
+            System.out.println(key + " : " + value);
+        }
+
+
+
+
     }
 
 }

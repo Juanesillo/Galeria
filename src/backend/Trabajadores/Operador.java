@@ -84,7 +84,7 @@ public class Operador{
                     claveMaxValor=clave;}  
 
                     }
-            Cajero.venderPieza(nombre, maxValor,claveMaxValor);
+            Cajero.venderPiezaOperador(nombre, maxValor, claveMaxValor);
                 
             
             

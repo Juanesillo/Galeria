@@ -9,13 +9,12 @@ public class Cliente  {
     // atributos de cliente
     private String contacto;
     private String idCliente;
-    
     private double Dinero;
 
   // listas implementadas en cliente
 
-    private HashMap<String, ArrayList<Object>> Historial= new HashMap<String,ArrayList<Object>>();
-    private HashMap<String, ArrayList<Object>> Compras = new HashMap<String,ArrayList<Object>>();
+    private HashMap<String, ArrayList<Object>> Historial= new HashMap<String,ArrayList<Object>>();// historial de propiedades 
+    private HashMap<String, ArrayList<Object>> Compras = new HashMap<String,ArrayList<Object>>();// historial de compras
 
 
     private boolean validar;// si el cliente esta validado por el administrador 
