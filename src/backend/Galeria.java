@@ -124,19 +124,101 @@ public class Galeria {
             writer.write("=== Lista de Clientes ===\n");
             for (Cliente cliente : listaClientes) {
                 writer.write(cliente.getContacto() + ";" + cliente.getIdCliente() +";"+cliente.getDinero()+";");
-                writer.write("prueba");
+                writer.write("Historial");
                 HashMap<String, ArrayList<Object>> mapa= cliente.getHistorial();
-            for (Entry<String, ArrayList<Object>> entry : mapa.entrySet()) {
-                String clave = entry.getKey();
-                ArrayList<Object> lista = entry.getValue();
-                writer.write(clave + ": ");
-                for (Object obj : lista) {
-                    writer.write(obj.toString() + " ");
+                for (Entry<String, ArrayList<Object>> entry : mapa.entrySet()) {
+                    String clave = entry.getKey();
+                    ArrayList<Object> lista = entry.getValue();
+                    writer.write(clave + ": ");
+                    for (Object obj : lista) {
+                        writer.write(obj.toString() + " ");
+                    }
+                    writer.write("\n");
+                
                 }
-                writer.write("\n");
+                writer.write("Compras");
+                HashMap<String, ArrayList<Object>> mapacom= cliente.getCompras();
+                for (Entry<String, ArrayList<Object>> entry : mapacom.entrySet()) {
+                    String clave = entry.getKey();
+                    ArrayList<Object> lista = entry.getValue();
+                    writer.write(clave + ": ");
+                    for (Object obj : lista) {
+                        writer.write(obj.toString() + " ");
+                    }
+                    writer.write("\n");
+                
+                }
+                writer.write("=== listadoDisponible ===\n");
+                HashMap<String,ArrayList<Object>>listadoD= inventario.getListadoDisponible();
+                for (Entry<String, ArrayList<Object>> entry : listadoD.entrySet()) {
+                    String clave = entry.getKey();
+                    ArrayList<Object> lista = entry.getValue();
+                    writer.write(clave + ": ");
+                    for (Object obj : lista) {
+                        writer.write(obj.toString() + " ");
+                    }
+                    writer.write("\n");
+                
+                }
+                writer.write("=== listadoSubasta ===\n");
+                HashMap<String,ArrayList<Object>>listadoS= inventario.getListadoSubasta();
+                for (Entry<String, ArrayList<Object>> entry : listadoS.entrySet()) {
+                    String clave = entry.getKey();
+                    ArrayList<Object> lista = entry.getValue();
+                    writer.write(clave + ": ");
+                    for (Object obj : lista) {
+                        writer.write(obj.toString() + " ");
+                    }
+                    writer.write("\n");
+                
+                }
+                writer.write("=== listadoexhibidas ===\n");
+                HashMap<String,ArrayList<Object>>listadoE= inventario.getListadoexhibidas();
+                for (Entry<String, ArrayList<Object>> entry : listadoE.entrySet()) {
+                    String clave = entry.getKey();
+                    ArrayList<Object> lista = entry.getValue();
+                    writer.write(clave + ": ");
+                    for (Object obj : lista) {
+                        writer.write(obj.toString() + " ");
+                    }
+                    writer.write("\n");
+                
+                }
+                writer.write("=== registro ===\n");
+                HashMap<Cliente,Integer> Registro1 = operador.getRegistro();
+                for (Entry<Cliente, Integer> entry : Registro1.entrySet()) {
+                    Cliente clave = entry.getKey();
+                    Integer entero = entry.getValue();
+                    writer.write(clave + ": "+entero);
+                    
+                    writer.write("\n");
+                
+                }
+
+                writer.write("=== registroPagos ===\n");
+                HashMap<String, Integer> RegistroPagos = cajero.getResgistroPagos();
+                for (Entry<Cliente, Integer> entry : Registro1.entrySet()) {
+                    Cliente clave = entry.getKey();
+                    Integer entero = entry.getValue();
+                    writer.write(clave + ": "+entero);
+                    
+                    writer.write("\n");
+                
+                }
+
+
+                 
+                
+            
+                
+
+
+
+
+
+
 
             
-            }
             
 
         }
