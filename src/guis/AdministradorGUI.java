@@ -134,9 +134,13 @@ public class AdministradorGUI extends BaseFrame {
         public void actionPerformed(ActionEvent e) {
 
             // Conectar con liente para validar usuario 
-            
 
-            System.out.println("hola Administrador");
+
+            System.out.println("Iniciando Proceso de elminar Pieza");
+            AdministradorGUI.this.dispose();
+            EliminarPiezaGui eliminarPiezaGui= new EliminarPiezaGui();
+            eliminarPiezaGui.setVisible(true);
+            JOptionPane.showMessageDialog(eliminarPiezaGui, "Por favor digite los datos para eliminar la pieza");
             
         }
         
