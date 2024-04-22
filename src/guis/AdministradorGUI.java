@@ -134,7 +134,7 @@ public class AdministradorGUI extends BaseFrame {
         public void actionPerformed(ActionEvent e) {
 
             // Conectar con liente para validar usuario 
-
+            
 
             System.out.println("hola Administrador");
             

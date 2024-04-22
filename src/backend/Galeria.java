@@ -79,4 +79,7 @@ public class Galeria {
         return listaClientes;
     }
 
+    public static void removePieza(String nombre){
+        inventario.EliminarPieza(nombre);
+    }
 }

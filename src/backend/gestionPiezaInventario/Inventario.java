@@ -66,10 +66,12 @@ public class Inventario {
         }
     }
 
-    public void EliminarPieza(Pieza pieza, ArrayList<Object> atributos){
-      
-            listadoDisponible.remove(pieza.getTitulo(), atributos);
-            listadoexhibidas.remove(pieza.getTitulo(), atributos);
+    public void EliminarPieza(String nombre){
+            ArrayList<Object> atributos= listadoDisponible.get(nombre);
+            listadoDisponible.remove(nombre, atributos);// puede faltar una validacion 
+            listadoexhibidas.remove(nombre, atributos);
+            
+
         
     }    
 
