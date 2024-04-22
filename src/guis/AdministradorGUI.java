@@ -53,7 +53,12 @@ public class AdministradorGUI extends BaseFrame {
         public void actionPerformed(ActionEvent e) {
 
             // Conectar con Inventario Generar conexión AGREGAR PIEZA
+            //dispose 
 
+            AdministradorGUI.this.dispose();
+            AddPiezaGUi addPiezaGUi= new AddPiezaGUi();
+            addPiezaGUi.setVisible(true);
+            
             
             
         }

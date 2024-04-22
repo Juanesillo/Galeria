@@ -9,6 +9,7 @@ import backend.Clientes.Cliente;
 import backend.Trabajadores.Cajero;
 import backend.Trabajadores.Operador;
 import backend.gestionPiezaInventario.Inventario;
+import backend.gestionPiezaInventario.Pieza;
 
 // esta clase va hacer un llamado de los metodos de otras calses 
 public class Galeria {
@@ -18,6 +19,8 @@ public class Galeria {
     private static Inventario inventario = new Inventario();
     private static Cajero cajero= new Cajero(inventario);
     private static Operador operador = new Operador(inventario);
+
+    // Ajustes de Persis
     private static ArrayList<Cliente> listaClientes= new ArrayList<Cliente>();
 
     // operador y subasta se deben crear una vez sea creado el cliente // validar operador y Subasta
@@ -62,6 +65,13 @@ public class Galeria {
         listaClientes.add(cliente);
     }
 
+    // metodos de cada Clase puts dentro de la clase 
+    //put en el inventario 
+
+    public static void agregarInventario(String nombre,ArrayList<Object> atributos, Pieza pieza){
+
+        inventario.AgregarPieza(nombre, atributos, pieza);
+    }
     
 
 }

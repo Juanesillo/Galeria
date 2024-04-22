@@ -1,5 +1,6 @@
 import guis.LoginGui;
 import guis.RegisterGui;
+import guis.AddPiezaGUi;
 import guis.ClienteGUI;
 import guis.InicioGUI;
 
@@ -18,8 +19,8 @@ public class AppLauncher {
               //new ClienteGUI().setVisible(true);
               //new LoginGui().setVisible(true);
             //new RegisterGui().setVisible(true);
-            new InicioGUI().setVisible(true);
-            
+            //new InicioGUI().setVisible(true);
+            new AddPiezaGUi().setVisible(true);
         }
     });
 

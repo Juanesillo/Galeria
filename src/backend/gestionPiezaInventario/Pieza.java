@@ -103,16 +103,16 @@ public Pieza(String autor, Integer id, Integer anio, String lugarCreacion, Strin
     //metodos
 
 
-    public ArrayList<Object> atributos(String autor, Integer id, Integer anio, String lugarCreacion,String tipo, String Titulo, Integer precio){
+    public static ArrayList<Object> atributos(String autor, Integer id, Integer anio, String lugarCreacion,String tipo, String Titulo, Integer precio){
         ArrayList<Object> Atributos= new ArrayList<Object>();
 
-        Atributos.add(this.autor);
-        Atributos.add(this.id);
-        Atributos.add(this.anio);
-        Atributos.add(this.lugarCreacion);
-        Atributos.add(this.tipo);
-        Atributos.add(this.titulo);
-        Atributos.add(this.precio);
+        Atributos.add(autor);
+        Atributos.add(id);
+        Atributos.add(anio);
+        Atributos.add(lugarCreacion);
+        Atributos.add(tipo);
+        Atributos.add(Titulo);
+        Atributos.add(precio);
 
         return Atributos;
         
