@@ -28,7 +28,7 @@ public class Galeria {
 
 
     // Inventario 
-    private HashMap<String,ArrayList<Object>>listadoDisponible= inventario.getListadoDisponible();
+    private static HashMap<String,ArrayList<Object>>listadoDisponible= inventario.getListadoDisponible();
     // Lista piezas disponibles para Subasta 
     private static HashMap<String,ArrayList<Object>>listadoSubasta= inventario.getListadoSubasta();
 
@@ -82,4 +82,11 @@ public class Galeria {
     public static void removePieza(String nombre){
         inventario.EliminarPieza(nombre);
     }
+
+
+    public static HashMap<String,ArrayList<Object>> getListadoDisponible(){
+
+        return listadoDisponible;
+    }
+
 }

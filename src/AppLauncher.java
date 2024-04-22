@@ -2,6 +2,7 @@ import guis.LoginGui;
 import guis.RegisterGui;
 import guis.AddPiezaGUi;
 import guis.ClienteGUI;
+import guis.EliminarPiezaGui;
 import guis.InicioGUI;
 
 import javax.swing.*;
@@ -15,7 +16,7 @@ public class AppLauncher {
             @Override
             public void run(){
              new InicioGUI().setVisible(true);
-           
+                //new EliminarPiezaGui().setVisible(true);
               //new ClienteGUI().setVisible(true);
               //new LoginGui().setVisible(true);
             //new RegisterGui().setVisible(true);
