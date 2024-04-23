@@ -1,2 +1,6 @@
 === Lista de Clientes ===
-ssss;af7931fb-779c-4329-8356-88ac446a5395;2132132.0;prueba
+pepeperic;e364e3c3-2d0d-422b-ba6c-885f65c7e986;3.0;HistorialCompras=== listadoDisponible ===
+=== listadoSubasta ===
+=== listadoexhibidas ===
+=== registro ===
+=== registroPagos ===

@@ -97,6 +97,7 @@ public class Operador{
         }
        
         
+       
 
 
     }
@@ -104,7 +105,11 @@ public class Operador{
 
 
 
-    
+    public static  void realizarRegistro(Cliente cliente, Integer valorPuja){
+        Registro.put(cliente, valorPuja);
+
+
+    }
 
 
 
