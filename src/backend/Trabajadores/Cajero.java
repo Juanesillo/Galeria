@@ -64,7 +64,7 @@ public class Cajero {
 
     public static void llenarSolicitud(Cliente cliente, String nombre){
         solicitud.put(cliente, nombre);
-
+        //Solicitud Compra
 
     }
    

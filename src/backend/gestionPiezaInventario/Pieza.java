@@ -168,7 +168,7 @@ public Pieza(String autor, Integer id, Integer anio, String lugarCreacion, Strin
 
 
 
-    
+    // mejorar implementación con Herencia Pieza => TIPO_PIEZA ESPECÏFICA
 
     }
 
